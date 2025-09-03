@@ -11,6 +11,7 @@ export interface Service {
   pricing: BasicPricing;
   pros: string[];
   cons: string[];
+  alternatives?: string[]; // IDs of alternative services
 }
 
 export interface ServiceFacts {
