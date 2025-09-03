@@ -1,13 +1,5 @@
 import {
-  Service,
-  ServiceCategory,
-  ServiceDatabase,
-  CategoryInfo,
-  ComparisonPair,
-  ServiceFilters,
-  SearchOptions,
-  CategoryStats,
-  ServiceLookup,
+  CategoryInfo, Service
 } from './types';
 
 export const CATEGORIES: CategoryInfo[] = [
@@ -231,6 +223,23 @@ export const PRIVACY_JOURNEY = [
           'Optimized for VPN usage',
         ],
       },
+      {
+        id: 'firefox',
+        title: 'Firefox',
+        category: 'Alternative Browser',
+        description:
+          'Open source browser with strong privacy features and extensive customization.',
+        whyImportant:
+          'Highly customizable with strong privacy features and open source transparency.',
+        privacyScore: 8.5,
+        website: 'https://www.mozilla.org/firefox',
+        keyFeatures: [
+          'Open source with strong community support',
+          'Enhanced Tracking Protection',
+          'Customizable with numerous privacy-focused extensions',
+          'Regular security updates',
+        ],
+      },
     ],
   },
   {
@@ -415,5 +424,5 @@ export const PRIVACY_JOURNEY = [
   },
 ];
 
-export { SERVICES as defaultServices };
-export { CATEGORIES as serviceCategories };
+export { SERVICES as defaultServices, CATEGORIES as serviceCategories };
+

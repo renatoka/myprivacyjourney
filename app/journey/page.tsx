@@ -6,17 +6,12 @@ import {
   Circle,
   ExternalLink,
   Shield,
+  Undo2,
 } from 'lucide-react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from '@/components/ui/tooltip';
 import { PRIVACY_JOURNEY } from '@/lib/services';
 
 export default function PrivacyJourney() {
@@ -25,6 +20,29 @@ export default function PrivacyJourney() {
   const [selectedAlternative, setSelectedAlternative] = useState<
     string | null
   >(null);
+
+  useEffect(() => {
+    const stored = localStorage.getItem(
+      'privacy-journey-completed-steps'
+    );
+    if (stored) {
+      try {
+        const parsed = JSON.parse(stored);
+        if (Array.isArray(parsed)) {
+          setCompletedSteps(parsed);
+        }
+      } catch (error) {
+        console.error('Error loading completed steps:', error);
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem(
+      'privacy-journey-completed-steps',
+      JSON.stringify(completedSteps)
+    );
+  }, [completedSteps]);
 
   const currentService = selectedAlternative
     ? PRIVACY_JOURNEY[currentStep]?.alternatives?.find(
@@ -48,14 +66,22 @@ export default function PrivacyJourney() {
     }
   };
 
+  const markStepUndone = () => {
+    setCompletedSteps(
+      completedSteps.filter((step) => step !== currentStep)
+    );
+  };
+
   const handleAlternativeClick = (altId: string) => {
     setSelectedAlternative(altId);
   };
 
+  const isCurrentStepCompleted = completedSteps.includes(currentStep);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white p-4">
       <div className="max-w-6xl mx-auto">
-        <header className="text-center mb-8">
+        <header className="text-center">
           <Alert variant="destructive" className="mb-6">
             <AlertDescription style={{ fontWeight: 'bold' }}>
               The EU is considering legislation that could impact the
@@ -65,6 +91,23 @@ export default function PrivacyJourney() {
             </AlertDescription>
           </Alert>
         </header>
+
+        <Alert variant="default" className="mb-6">
+          <AlertDescription style={{ color: 'black' }}>
+            Embark on your privacy journey with a curated list of
+            services designed to enhance your online security and data
+            protection. Each step introduces privacy-focused
+            alternatives to mainstream platforms, complete with
+            detailed insights and key features to help you make
+            informed decisions. This list is thoughtfully ordered to
+            follow the natural flow of how we access and use the
+            internet — starting from your browser, moving to your
+            search engine, VPN, and then to essential tools like
+            email, messaging apps, cloud storage, and social media.
+            Remember, improving your privacy is a journey, not a
+            destination — take it one step at a time.
+          </AlertDescription>
+        </Alert>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div className="relative">
@@ -127,10 +170,13 @@ export default function PrivacyJourney() {
                         {step.alternatives.map((alt) => (
                           <button
                             key={alt.id}
-                            onClick={() =>
-                              handleAlternativeClick(alt.id)
-                            }
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleStepClick(index);
+                              handleAlternativeClick(alt.id);
+                            }}
                             className={`text-left block w-full p-2 rounded-lg text-sm transition-all duration-300 border-2 border-dashed ${
+                              currentStep === index &&
                               selectedAlternative === alt.id
                                 ? 'bg-purple-50 border-purple-300'
                                 : 'border-gray-200 hover:border-purple-200 hover:bg-gray-50'
@@ -144,9 +190,9 @@ export default function PrivacyJourney() {
                                 <span className="text-purple-600 ml-2 text-xs">
                                   Alternative
                                 </span>
-                                <div className="text-xs text-gray-500 mt-1">
+                                {/* <div className="text-xs text-gray-500 mt-1">
                                   {alt.privacyScore}/10 Privacy Score
-                                </div>
+                                </div> */}
                               </div>
                               <ArrowRight
                                 size={14}
@@ -173,9 +219,14 @@ export default function PrivacyJourney() {
                     </h2>
                     <p className="text-sm text-gray-600 tracking-wide">
                       {currentService.category}
+                      {selectedAlternative && (
+                        <span className="text-purple-600 ml-2">
+                          (Alternative Option)
+                        </span>
+                      )}
                     </p>
                   </div>
-                  <div className="text-right">
+                  {/* <div className="text-right">
                     <Tooltip>
                       <TooltipTrigger>
                         <Badge className="bg-green-100 text-green-800 cursor-default">
@@ -189,7 +240,7 @@ export default function PrivacyJourney() {
                         transparency.
                       </TooltipContent>
                     </Tooltip>
-                  </div>
+                  </div> */}
                 </div>
 
                 <div className="mb-6">
@@ -231,7 +282,7 @@ export default function PrivacyJourney() {
                   </ul>
                 </div>
 
-                <div className="flex gap-3">
+                <div className="flex gap-3 mb-6">
                   <a
                     href={currentService.website}
                     target="_blank"
@@ -242,11 +293,52 @@ export default function PrivacyJourney() {
                     <ExternalLink size={14} />
                   </a>
 
+                  {!isCurrentStepCompleted ? (
+                    <button
+                      onClick={markStepComplete}
+                      className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors text-sm font-medium"
+                    >
+                      Mark as Done ✓
+                    </button>
+                  ) : (
+                    <button
+                      onClick={markStepUndone}
+                      className="flex items-center gap-2 bg-gray-600 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors text-sm font-medium"
+                    >
+                      <Undo2 size={14} />
+                      Mark as Undone
+                    </button>
+                  )}
+                </div>
+
+                {/* Navigation buttons */}
+                <div className="flex justify-between">
                   <button
-                    onClick={markStepComplete}
-                    className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors text-sm font-medium"
+                    onClick={() => {
+                      if (currentStep > 0) {
+                        setCurrentStep(currentStep - 1);
+                        setSelectedAlternative(null);
+                      }
+                    }}
+                    disabled={currentStep === 0}
+                    className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    Done, Next Step →
+                    ← Previous Step
+                  </button>
+
+                  <button
+                    onClick={() => {
+                      if (currentStep < PRIVACY_JOURNEY.length - 1) {
+                        setCurrentStep(currentStep + 1);
+                        setSelectedAlternative(null);
+                      }
+                    }}
+                    disabled={
+                      currentStep === PRIVACY_JOURNEY.length - 1
+                    }
+                    className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    Next Step →
                   </button>
                 </div>
 
@@ -274,10 +366,10 @@ export default function PrivacyJourney() {
                                   <span className="font-medium text-purple-700">
                                     {alt.title}
                                   </span>
-                                  <div className="text-xs text-purple-600 mt-1">
+                                  {/* <div className="text-xs text-purple-600 mt-1">
                                     {alt.privacyScore}/10 Privacy
                                     Score
-                                  </div>
+                                  </div> */}
                                 </div>
                                 <ArrowRight
                                   size={14}
@@ -290,6 +382,20 @@ export default function PrivacyJourney() {
                       </div>
                     </>
                   )}
+
+                {selectedAlternative && (
+                  <>
+                    <Separator className="my-6" />
+                    <div className="mt-6">
+                      <button
+                        onClick={() => setSelectedAlternative(null)}
+                        className="flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 mb-4"
+                      >
+                        ← Back to {PRIVACY_JOURNEY[currentStep].title}
+                      </button>
+                    </div>
+                  </>
+                )}
               </div>
             ) : (
               <div className="bg-white rounded-xl shadow-lg p-8 border border-gray-200 text-center">
@@ -300,10 +406,31 @@ export default function PrivacyJourney() {
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">
                   Start Your Privacy Journey
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-gray-600 mb-6">
                   Click on any step to learn about privacy-focused
                   alternatives to mainstream services.
                 </p>
+
+                <div className="text-sm text-gray-500">
+                  Progress: {completedSteps.length} of{' '}
+                  {PRIVACY_JOURNEY.length} steps completed
+                  {completedSteps.length > 0 && (
+                    <div className="mt-2">
+                      <div className="w-full bg-gray-200 rounded-full h-2">
+                        <div
+                          className="bg-green-500 h-2 rounded-full transition-all duration-300"
+                          style={{
+                            width: `${
+                              (completedSteps.length /
+                                PRIVACY_JOURNEY.length) *
+                              100
+                            }%`,
+                          }}
+                        ></div>
+                      </div>
+                    </div>
+                  )}
+                </div>
               </div>
             )}
           </div>
