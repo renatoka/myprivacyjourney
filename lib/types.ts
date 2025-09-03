@@ -1,17 +1,15 @@
 export interface Service {
-  id: string; // kebab-case: "proton-mail", "gmail", etc.
-  name: string; // Display name: "ProtonMail", "Gmail"
+  id: string;
+  name: string;
   category: ServiceCategory;
   website: string;
   description: string;
-  logo?: string; // Path to logo or emoji fallback
-  privacyScore: number; // 1-10, manually researched
+  logo?: string;
   facts: ServiceFacts;
-  euCompliance: ComplianceLevel;
   pricing: BasicPricing;
   pros: string[];
   cons: string[];
-  alternatives?: string[]; // IDs of alternative services
+  alternatives?: string[];
 }
 
 export interface ServiceFacts {
@@ -19,16 +17,16 @@ export interface ServiceFacts {
 }
 export interface BasicPricing {
   free: boolean;
-  startingPrice?: string | null; // "€5/month", "Free with ads"
+  startingPrice?: string | null;
   businessModel?: BusinessModel;
 }
 
 export interface ComparisonPair {
   service1: Service;
   service2: Service;
-  categoryMatch: boolean; // True if both services in same category
+  categoryMatch: boolean;
   winner?: 'service1' | 'service2' | 'tie';
-  scoreDifference: number; // Absolute difference in privacy scores
+  scoreDifference: number;
 }
 
 export type ServiceCategory =
@@ -39,39 +37,47 @@ export type ServiceCategory =
   | 'messaging'
   | 'storage'
   | 'social'
-  | 'video-call';
+  | 'video-call'
+  | 'password'
+  | 'notes'
+  | 'calendar'
+  | 'file-sharing'
+  | 'productivity'
+  | 'analytics'
+  | 'ads'
+  | 'ecommerce'
+  | 'health'
+  | 'entertainment'
+  | 'news'
+  | 'education'
+  | 'dns'
+  | 'mobile-os'
+  | 'other';
 
-export type ComplianceLevel =
-  | 'compliant' // 🟢 EU privacy friendly
-  | 'partial' // 🟡 Some privacy concerns
-  | 'concerning'; // 🔴 Privacy issues
+export type ComplianceLevel = 'compliant' | 'partial' | 'concerning';
 
-export type BusinessModel =
-  | 'free' // Completely free
-  | 'freemium' // Free tier + paid upgrades
-  | 'paid' // Paid only
-  | 'ads'; // Ad-supported
+export type BusinessModel = 'free' | 'freemium' | 'paid' | 'ads';
 
 export interface ServiceDatabase {
   services: Service[];
   categories: CategoryInfo[];
-  lastUpdated: string; // ISO date
-  version: string; // Semantic version
+  lastUpdated: string;
+  version: string;
 }
 
 export interface CategoryInfo {
   id: ServiceCategory;
   name: string;
   description: string;
-  icon: string; // Emoji or icon name
-  popularServices: string[]; // Service IDs for this category
+  icon: string;
+  popularServices: string[];
 }
 
 export interface ServiceFilters {
   category?: ServiceCategory;
-  euCompliant?: boolean; // Only show EU-compliant services
-  freeOption?: boolean; // Must have free tier
-  minPrivacyScore?: number; // Minimum privacy score (1-10)
+  euCompliant?: boolean;
+  freeOption?: boolean;
+  minPrivacyScore?: number;
 }
 
 export interface SearchOptions {
