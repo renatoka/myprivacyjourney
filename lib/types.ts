@@ -18,8 +18,8 @@ export interface ServiceFacts {
 }
 export interface BasicPricing {
   free: boolean;
-  startingPrice?: string; // "€5/month", "Free with ads"
-  businessModel: BusinessModel;
+  startingPrice?: string | null; // "€5/month", "Free with ads"
+  businessModel?: BusinessModel;
 }
 
 export interface ComparisonPair {
