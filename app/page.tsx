@@ -117,7 +117,7 @@ export default function Home() {
                             >
                                 <button
                                     onClick={() => handleStepClick(index)}
-                                    className={`relative z-10 flex items-center justify-center w-12 h-12 rounded-full border-4 transition-all duration-300 ${
+                                    className={`cursor-pointer relative z-10 flex items-center justify-center w-12 h-12 rounded-full border-4 transition-all duration-300 ${
                                         completedSteps.includes(index)
                                             ? 'bg-green-500 border-green-500 text-white'
                                             : currentStep === index
@@ -132,10 +132,10 @@ export default function Home() {
                                     )}
                                 </button>
 
-                                <div className="ml-4 flex-1">
+                                <div className="ml-4 flex-1 ">
                                     <button
                                         onClick={() => handleStepClick(index)}
-                                        className={`text-left block w-full p-3 rounded-lg transition-all duration-300 ${
+                                        className={`cursor-pointer text-left block w-full p-3 rounded-lg transition-all duration-300 ${
                                             currentStep === index
                                                 ? 'bg-white border border-gray-200'
                                                 : 'hover:bg-white'
@@ -194,7 +194,7 @@ export default function Home() {
                                                                         alt.id
                                                                     )
                                                                 }}
-                                                                className={`text-left block w-full p-2 rounded-lg text-sm transition-all duration-300 border-2 border-dashed ${
+                                                                className={`cursor-pointer text-left block w-full p-2 rounded-lg text-sm transition-all duration-300 border-2 border-dashed ${
                                                                     currentStep ===
                                                                         index &&
                                                                     selectedAlternative ===
@@ -393,14 +393,14 @@ export default function Home() {
                                 {!isCurrentStepCompleted ? (
                                     <button
                                         onClick={markStepComplete}
-                                        className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors text-sm font-medium"
+                                        className="cursor-pointer bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors text-sm font-medium"
                                     >
                                         Mark as Done ✓
                                     </button>
                                 ) : (
                                     <button
                                         onClick={markStepUndone}
-                                        className="flex items-center gap-2 bg-gray-600 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors text-sm font-medium"
+                                        className="cursor-pointer flex items-center gap-2 bg-gray-600 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors text-sm font-medium"
                                     >
                                         <Undo2 size={14} />
                                         Mark as Undone
@@ -417,7 +417,7 @@ export default function Home() {
                                         }
                                     }}
                                     disabled={currentStep === 0}
-                                    className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="cursor-pointer flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 disabled:opacity-50 disabled:cursor-not-allowed"
                                 >
                                     ← Previous Step
                                 </button>
@@ -436,7 +436,7 @@ export default function Home() {
                                         currentStep ===
                                         primaryServices.length - 1
                                     }
-                                    className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="cursor-pointer flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 disabled:opacity-50 disabled:cursor-not-allowed"
                                 >
                                     Next Step →
                                 </button>
@@ -471,7 +471,7 @@ export default function Home() {
                                                                         alt.id
                                                                     )
                                                                 }
-                                                                className="text-left p-3 rounded-lg border border-dashed border-purple-200 hover:border-purple-400 hover:bg-purple-50 transition-all duration-300"
+                                                                className="cursor-pointer text-left p-3 rounded-lg border border-dashed border-purple-200 hover:border-purple-400 hover:bg-purple-50 transition-all duration-300"
                                                             >
                                                                 <div className="flex items-center justify-between">
                                                                     <div>
