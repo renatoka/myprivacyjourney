@@ -36,38 +36,37 @@ const PRIMARY_SERVICES: Service[] = [
         alternatives: ['mailbox-org', 'tuta-mail'],
     },
     {
-        id: 'brave-search',
-        name: 'Brave Search',
+        id: 'startpage',
+        name: 'Startpage',
         category: 'search',
         isPrimary: true,
-        website: 'https://search.brave.com/',
+        website: 'https://startpage.com/',
         description:
-            'Independent search engine with own index,  focusing on privacy while providing high-quality results through Web Discovery Project without relying on Google or Bing.',
+            'Netherlands-based private search engine that provides Google search results without tracking. Features Anonymous View for additional privacy protection when visiting result pages.',
         logo: '',
         facts: {
-            index: 'Independent index with 20+ billion pages',
-            tracking: 'No user tracking or profile building',
-            features:
-                'Goggles for customizable result ranking, Discussions feature',
+            sources: 'Google and Microsoft Bing results',
+            anonymousView: 'Anonymous View proxy feature',
+            logging: 'No IP address logging or tracking',
+            jurisdiction: 'Netherlands-based (European privacy standards)',
             torSupport: 'Tor hidden service available',
-            openSource: 'Web Discovery Project for anonymous data contribution',
         },
         pricing: {
             free: true,
-            startingPrice: 'Premium $3/month (removes ads, early access)',
+            startingPrice: 'No paid tiers',
         },
         pros: [
-            'Truly independent index not reliant on Google/Bing',
-            'Strong privacy protections with no tracking',
-            'Innovative features like Discussions and Goggles',
-            'High-quality, contextually relevant results',
+            'Provides Google-quality results without tracking',
+            'Anonymous View adds extra privacy layer',
+            'Strong European privacy protections',
+            'Good balance of privacy and result quality',
         ],
         cons: [
-            'Smaller index compared to Google but growing rapidly',
-            'Premium account may enable query correlation',
-            'Some specialized searches may have fewer results',
+            'Owned by System1 (advertising company)',
+            'Dependent on Google/Bing for all results',
+            "May inherit Google's algorithmic biases",
         ],
-        alternatives: ['duckduckgo', 'startpage', 'searxng'],
+        alternatives: ['brave-search', 'duckduckgo', 'searxng'],
     },
     {
         id: 'mullvad-browser',
@@ -487,6 +486,40 @@ const ALTERNATIVE_SERVICES: Service[] = [
         alternatives: ['proton-mail', 'mailbox-org'],
     },
     {
+        id: 'brave-search',
+        name: 'Brave Search',
+        category: 'search',
+        isPrimary: false,
+        website: 'https://search.brave.com/',
+        description:
+            'Independent search engine with own index,  focusing on privacy while providing high-quality results through Web Discovery Project without relying on Google or Bing.',
+        logo: '',
+        facts: {
+            index: 'Independent index with 20+ billion pages',
+            tracking: 'No user tracking or profile building',
+            features:
+                'Goggles for customizable result ranking, Discussions feature',
+            torSupport: 'Tor hidden service available',
+            openSource: 'Web Discovery Project for anonymous data contribution',
+        },
+        pricing: {
+            free: true,
+            startingPrice: 'Premium $3/month (removes ads, early access)',
+        },
+        pros: [
+            'Truly independent index not reliant on Google/Bing',
+            'Strong privacy protections with no tracking',
+            'Innovative features like Discussions and Goggles',
+            'High-quality, contextually relevant results',
+        ],
+        cons: [
+            'Smaller index compared to Google but growing rapidly',
+            'Premium account may enable query correlation',
+            'Some specialized searches may have fewer results',
+        ],
+        alternatives: ['duckduckgo', 'startpage', 'searxng'],
+    },
+    {
         id: 'duckduckgo',
         name: 'DuckDuckGo',
         category: 'search',
@@ -517,38 +550,6 @@ const ALTERNATIVE_SERVICES: Service[] = [
             "Results may show Bing's biases or censorship",
         ],
         alternatives: ['brave-search', 'startpage', 'searxng'],
-    },
-    {
-        id: 'startpage',
-        name: 'Startpage',
-        category: 'search',
-        website: 'https://startpage.com/',
-        description:
-            'Netherlands-based private search engine that provides Google search results without tracking. Features Anonymous View for additional privacy protection when visiting result pages.',
-        logo: '',
-        facts: {
-            sources: 'Google and Microsoft Bing results',
-            anonymousView: 'Anonymous View proxy feature',
-            logging: 'No IP address logging or tracking',
-            jurisdiction: 'Netherlands-based (European privacy standards)',
-            torSupport: 'Tor hidden service available',
-        },
-        pricing: {
-            free: true,
-            startingPrice: 'No paid tiers',
-        },
-        pros: [
-            'Provides Google-quality results without tracking',
-            'Anonymous View adds extra privacy layer',
-            'Strong European privacy protections',
-            'Good balance of privacy and result quality',
-        ],
-        cons: [
-            'Owned by System1 (advertising company)',
-            'Dependent on Google/Bing for all results',
-            "May inherit Google's algorithmic biases",
-        ],
-        alternatives: ['brave-search', 'duckduckgo', 'searxng'],
     },
     {
         id: 'searxng',
@@ -2292,12 +2293,49 @@ export const ALL_SERVICES: Service[] = [
 export const SERVICES = ALL_SERVICES
 export { PRIMARY_SERVICES as PRIVACY_JOURNEY }
 
+const CATEGORY_ORDER = [
+    'dns',
+    'vpn',
+    'browser',
+    'search',
+    'email',
+    'messaging',
+    'video-call',
+    'social',
+    'storage',
+    'file-sharing',
+    'password',
+    'notes',
+    'calendar',
+    'productivity',
+    'analytics',
+    'ads',
+    'ecommerce',
+    'health',
+    'entertainment',
+    'news',
+    'education',
+    'mobile-os',
+    'other',
+]
+
+function sortServicesByCategory(services: Service[]): Service[] {
+    return [...services].sort((a, b) => {
+        const aIndex = CATEGORY_ORDER.indexOf(a.category)
+        const bIndex = CATEGORY_ORDER.indexOf(b.category)
+        if (aIndex === -1 && bIndex === -1) return 0
+        if (aIndex === -1) return 1
+        if (bIndex === -1) return -1
+        return aIndex - bIndex
+    })
+}
+
 export const getPrimaryServices = (): Service[] => {
-    return PRIMARY_SERVICES
+    return sortServicesByCategory(PRIMARY_SERVICES)
 }
 
 export const getAlternativeServices = (): Service[] => {
-    return ALTERNATIVE_SERVICES
+    return sortServicesByCategory(ALTERNATIVE_SERVICES)
 }
 
 export const getServicesByCategory = (category: string): Service[] => {
