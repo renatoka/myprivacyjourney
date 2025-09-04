@@ -5,16 +5,16 @@
  * @type {import("prettier").Config}
  */
 const config = {
-    semi: true,
-    singleQuote: true,
-    printWidth: 100,
-    tabWidth: 2,
-    useTabs: false,
-    trailingComma: 'es5',
-    bracketSpacing: true,
-    arrowParens: 'always',
-    endOfLine: 'lf',
-    plugins: ['prettier-plugin-organize-imports'], 'prettier-plugin-tailwindcss',
-}
+  semi: true,
+  singleQuote: true,
+  printWidth: 100,
+  tabWidth: 2,
+  useTabs: false,
+  trailingComma: 'es5',
+  bracketSpacing: true,
+  arrowParens: 'always',
+  endOfLine: 'lf',
+  plugins: ['prettier-plugin-organize-imports', 'prettier-plugin-tailwindcss'],
+};
 
-export default config
+export default config;

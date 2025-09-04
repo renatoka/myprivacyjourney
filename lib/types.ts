@@ -1,58 +1,58 @@
 export interface Service {
-    id: string
-    name: string
-    category: ServiceCategory
-    isPrimary?: boolean
-    website: string
-    description: string
-    logo?: string
-    facts: ServiceFacts
-    pricing: BasicPricing
-    pros: string[]
-    cons: string[]
-    alternatives?: string[]
+  id: string;
+  name: string;
+  category: ServiceCategory;
+  isPrimary?: boolean;
+  website: string;
+  description: string;
+  logo?: string;
+  facts: ServiceFacts;
+  pricing: BasicPricing;
+  pros: string[];
+  cons: string[];
+  alternatives?: string[];
 }
 
 export interface ServiceFacts {
-    [key: string]: string
+  [key: string]: string;
 }
 export interface BasicPricing {
-    free: boolean
-    startingPrice?: string | null
-    businessModel?: BusinessModel
+  free: boolean;
+  startingPrice?: string | null;
+  businessModel?: BusinessModel;
 }
 
 export interface ComparisonPair {
-    service1: Service
-    service2: Service
-    categoryMatch: boolean
-    winner?: 'service1' | 'service2' | 'tie'
-    scoreDifference: number
+  service1: Service;
+  service2: Service;
+  categoryMatch: boolean;
+  winner?: 'service1' | 'service2' | 'tie';
+  scoreDifference: number;
 }
 
 export type ServiceCategory =
-    | 'dns'
-    | 'vpn'
-    | 'browser'
-    | 'search'
-    | 'email'
-    | 'messaging'
-    | 'video-call'
-    | 'social'
-    | 'storage'
-    | 'file-sharing'
-    | 'password'
-    | 'notes'
-    | 'calendar'
-    | 'productivity'
-    | 'analytics'
-    | 'ads'
-    | 'ecommerce'
-    | 'health'
-    | 'entertainment'
-    | 'news'
-    | 'education'
-    | 'mobile-os'
-    | 'other'
+  | 'dns'
+  | 'vpn'
+  | 'browser'
+  | 'search'
+  | 'email'
+  | 'messaging'
+  | 'video-call'
+  | 'social'
+  | 'storage'
+  | 'file-sharing'
+  | 'password'
+  | 'notes'
+  | 'calendar'
+  | 'productivity'
+  | 'analytics'
+  | 'ads'
+  | 'ecommerce'
+  | 'health'
+  | 'entertainment'
+  | 'news'
+  | 'education'
+  | 'mobile-os'
+  | 'other';
 
-export type BusinessModel = 'free' | 'freemium' | 'paid' | 'ads'
+export type BusinessModel = 'free' | 'freemium' | 'paid' | 'ads';
