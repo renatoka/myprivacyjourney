@@ -50,6 +50,7 @@ export default function Home() {
         : primaryServices[currentStep]
 
     const handleStepClick = (index: number) => {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
         setCurrentStep(index)
         setSelectedAlternative(null)
     }
@@ -88,7 +89,7 @@ export default function Home() {
                 </Alert>
             </header>
 
-            <Alert variant="default" className="mb-6">
+            {/* <Alert variant="default" className="mb-6">
                 <AlertDescription style={{ color: 'black' }}>
                     Embark on your privacy journey with a curated list of
                     services designed to enhance your online security and data
@@ -103,9 +104,9 @@ export default function Home() {
                     improving your privacy is a journey, not a destination —
                     take it one step at a time.
                 </AlertDescription>
-            </Alert>
+            </Alert> */}
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="flex flex-col-reverse md:grid md:grid-cols-2 gap-8">
                 <div className="relative">
                     <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gray-300"></div>
 
@@ -186,7 +187,6 @@ export default function Home() {
                                                                 onClick={(
                                                                     e
                                                                 ) => {
-                                                                    e.stopPropagation()
                                                                     handleStepClick(
                                                                         index
                                                                     )
