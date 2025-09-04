@@ -97,11 +97,11 @@ export default function Home() {
                     insights and key features to help you make informed
                     decisions. This list is thoughtfully ordered to follow the
                     natural flow of how we access and use the internet —
-                    starting from your browser, moving to your search engine,
-                    VPN, and then to essential tools like email, messaging apps,
-                    cloud storage, and social media. Remember, improving your
-                    privacy is a journey, not a destination — take it one step
-                    at a time.
+                    starting from your DNS provider, browser, moving to your
+                    search engine, VPN, and then to essential tools like email,
+                    messaging apps, cloud storage, and social media. Remember,
+                    improving your privacy is a journey, not a destination —
+                    take it one step at a time.
                 </AlertDescription>
             </Alert>
 
