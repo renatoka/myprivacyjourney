@@ -95,6 +95,9 @@ export default function SourcesPage() {
                 <p className="text-xs text-gray-500">
                     Total sources: {SOURCES.length}
                 </p>
+                <p className="text-xs text-gray-500">
+                    Last updated: September 2025
+                </p>
             </div>
         </div>
     )
