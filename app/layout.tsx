@@ -47,7 +47,7 @@ export default function RootLayout({
               target="_blank"
               rel="noopener noreferrer"
             >
-              GitHub
+              Star on GitHub
             </Link>
             <Separator orientation="vertical" />
           </div>

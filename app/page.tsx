@@ -245,7 +245,6 @@ export default function Home() {
                 <p className="text-gray-700">{currentService.description}</p>
               </div>
 
-              {/* Service Facts */}
               <div className="mb-6">
                 <h3 className="font-semibold text-gray-900 mb-3">
                   Service Details
@@ -253,7 +252,10 @@ export default function Home() {
                 <div className="grid gap-2">
                   {Object.entries(currentService.facts).map(
                     ([key, value], index) => (
-                      <div key={index} className="flex items-start">
+                      <div
+                        key={index}
+                        className="flex items-start justify-between"
+                      >
                         <span className="text-sm font-medium text-gray-600 capitalize min-w-[100px]">
                           {key.replace(/([A-Z])/g, " $1").toLowerCase()}:
                         </span>
@@ -270,7 +272,6 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Pricing Information */}
               <div className="mb-6">
                 <h3 className="font-semibold text-gray-900 mb-3">Pricing</h3>
                 <div className="space-y-2">
@@ -297,7 +298,6 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Pros */}
               <div className="mb-6">
                 <h3 className="font-semibold text-gray-900 mb-3">
                   Key Benefits
@@ -315,7 +315,6 @@ export default function Home() {
                 </ul>
               </div>
 
-              {/* Cons */}
               <div className="mb-6">
                 <h3 className="font-semibold text-gray-900 mb-3">
                   Considerations
@@ -362,7 +361,6 @@ export default function Home() {
                 )}
               </div>
 
-              {/* Navigation buttons */}
               <div className="flex justify-between">
                 <button
                   onClick={() => {
@@ -432,20 +430,6 @@ export default function Home() {
                     </div>
                   </>
                 )}
-
-              {selectedAlternative && (
-                <>
-                  <Separator className="my-6" />
-                  <div className="mt-6">
-                    <button
-                      onClick={() => setSelectedAlternative(null)}
-                      className="flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 mb-4"
-                    >
-                      ← Back to {primaryServices[currentStep].name}
-                    </button>
-                  </div>
-                </>
-              )}
             </div>
           ) : (
             <div className="bg-white rounded-xl shadow-lg p-8 border border-gray-200 text-center">
