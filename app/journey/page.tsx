@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import {
   ArrowRight,
@@ -7,36 +7,25 @@ import {
   ExternalLink,
   Shield,
   Undo2,
-} from 'lucide-react';
-import { useEffect, useState } from 'react';
+} from "lucide-react";
+import { useEffect, useState } from "react";
 
-import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Separator } from '@/components/ui/separator';
-import { SERVICES } from '@/lib/services';
-import { Service } from '@/lib/types';
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Separator } from "@/components/ui/separator";
+import { createServiceMap, getPrimaryServices } from "@/lib/services";
 
 export default function PrivacyJourney() {
   const [currentStep, setCurrentStep] = useState(0);
   const [completedSteps, setCompletedSteps] = useState<number[]>([]);
-  const [selectedAlternative, setSelectedAlternative] = useState<
-    string | null
-  >(null);
+  const [selectedAlternative, setSelectedAlternative] = useState<string | null>(
+    null,
+  );
 
-  const primaryServices = SERVICES.filter((service) => {
-    return !SERVICES.some((otherService) =>
-      otherService.alternatives?.includes(service.id)
-    );
-  });
-
-  const serviceMap = SERVICES.reduce((map, service) => {
-    map[service.id] = service;
-    return map;
-  }, {} as Record<string, Service>);
+  const primaryServices = getPrimaryServices();
+  const serviceMap = createServiceMap();
 
   useEffect(() => {
-    const stored = sessionStorage.getItem(
-      'privacy-journey-completed-steps'
-    );
+    const stored = sessionStorage.getItem("privacy-journey-completed-steps");
     if (stored) {
       try {
         const parsed = JSON.parse(stored);
@@ -44,15 +33,15 @@ export default function PrivacyJourney() {
           setCompletedSteps(parsed);
         }
       } catch (error) {
-        console.error('Error loading completed steps:', error);
+        console.error("Error loading completed steps:", error);
       }
     }
   }, []);
 
   useEffect(() => {
     sessionStorage.setItem(
-      'privacy-journey-completed-steps',
-      JSON.stringify(completedSteps)
+      "privacy-journey-completed-steps",
+      JSON.stringify(completedSteps),
     );
   }, [completedSteps]);
 
@@ -77,9 +66,7 @@ export default function PrivacyJourney() {
   };
 
   const markStepUndone = () => {
-    setCompletedSteps(
-      completedSteps.filter((step) => step !== currentStep)
-    );
+    setCompletedSteps(completedSteps.filter((step) => step !== currentStep));
   };
 
   const handleAlternativeClick = (altId: string) => {
@@ -92,29 +79,27 @@ export default function PrivacyJourney() {
     <div>
       <header className="text-center">
         <Alert variant="destructive" className="mb-6">
-          <AlertDescription style={{ fontWeight: 'bold' }}>
-            The EU is considering legislation that could impact the
-            use of encrypted messaging apps like Signal and
-            ProtonMail. Stay informed and consider alternatives if
-            necessary. Learn more at https:
+          <AlertDescription style={{ fontWeight: "bold" }}>
+            The EU is considering legislation that could impact the use of
+            encrypted messaging apps like Signal and ProtonMail. Stay informed
+            and consider alternatives if necessary. Learn more at
+            https://fightchatcontrol.eu/
           </AlertDescription>
         </Alert>
       </header>
 
       <Alert variant="default" className="mb-6">
-        <AlertDescription style={{ color: 'black' }}>
-          Embark on your privacy journey with a curated list of
-          services designed to enhance your online security and data
-          protection. Each step introduces privacy-focused
-          alternatives to mainstream platforms, complete with detailed
-          insights and key features to help you make informed
-          decisions. This list is thoughtfully ordered to follow the
-          natural flow of how we access and use the internet —
-          starting from your browser, moving to your search engine,
-          VPN, and then to essential tools like email, messaging apps,
-          cloud storage, and social media. Remember, improving your
-          privacy is a journey, not a destination — take it one step
-          at a time.
+        <AlertDescription style={{ color: "black" }}>
+          Embark on your privacy journey with a curated list of services
+          designed to enhance your online security and data protection. Each
+          step introduces privacy-focused alternatives to mainstream platforms,
+          complete with detailed insights and key features to help you make
+          informed decisions. This list is thoughtfully ordered to follow the
+          natural flow of how we access and use the internet — starting from
+          your browser, moving to your search engine, VPN, and then to essential
+          tools like email, messaging apps, cloud storage, and social media.
+          Remember, improving your privacy is a journey, not a destination —
+          take it one step at a time.
         </AlertDescription>
       </Alert>
 
@@ -124,18 +109,15 @@ export default function PrivacyJourney() {
 
           <div className="space-y-6">
             {primaryServices.map((service, index) => (
-              <div
-                key={service.id}
-                className="relative flex items-start group"
-              >
+              <div key={service.id} className="relative flex items-start group">
                 <button
                   onClick={() => handleStepClick(index)}
                   className={`relative z-10 flex items-center justify-center w-12 h-12 rounded-full border-4 transition-all duration-300 ${
                     completedSteps.includes(index)
-                      ? 'bg-green-500 border-green-500 text-white'
+                      ? "bg-green-500 border-green-500 text-white"
                       : currentStep === index
-                      ? 'bg-blue-500 border-blue-500 text-white'
-                      : 'bg-white border-gray-300 text-gray-400 hover:border-blue-400'
+                        ? "bg-blue-500 border-blue-500 text-white"
+                        : "bg-white border-gray-300 text-gray-400 hover:border-blue-400"
                   }`}
                 >
                   {completedSteps.includes(index) ? (
@@ -150,8 +132,8 @@ export default function PrivacyJourney() {
                     onClick={() => handleStepClick(index)}
                     className={`text-left block w-full p-3 rounded-lg transition-all duration-300 ${
                       currentStep === index
-                        ? 'bg-white border border-gray-200'
-                        : 'hover:bg-white'
+                        ? "bg-white border border-gray-200"
+                        : "hover:bg-white"
                     }`}
                   >
                     <div className="flex items-center justify-between">
@@ -174,56 +156,55 @@ export default function PrivacyJourney() {
                       <ArrowRight
                         size={16}
                         className={`text-gray-400 transition-transform ${
-                          currentStep === index ? 'translate-x-1' : ''
+                          currentStep === index ? "translate-x-1" : ""
                         }`}
                       />
                     </div>
                   </button>
 
-                  {service.alternatives &&
-                    service.alternatives.length > 0 && (
-                      <div className="ml-8 mt-3 space-y-2">
-                        {service.alternatives
-                          .filter((altId) => serviceMap[altId])
-                          .map((altId) => {
-                            const alt = serviceMap[altId];
-                            return (
-                              <button
-                                key={alt.id}
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                  handleStepClick(index);
-                                  handleAlternativeClick(alt.id);
-                                }}
-                                className={`text-left block w-full p-2 rounded-lg text-sm transition-all duration-300 border-2 border-dashed ${
-                                  currentStep === index &&
-                                  selectedAlternative === alt.id
-                                    ? 'bg-purple-50 border-purple-300'
-                                    : 'border-gray-200 hover:border-purple-200 hover:bg-gray-50'
-                                }`}
-                              >
-                                <div className="flex items-center justify-between">
-                                  <div>
-                                    <span className="font-medium text-gray-700">
-                                      {alt.name}
-                                    </span>
-                                    <span className="text-purple-600 ml-2 text-xs">
-                                      Alternative
-                                    </span>
-                                    {/* <div className="text-xs text-gray-500 mt-1">
+                  {service.alternatives && service.alternatives.length > 0 && (
+                    <div className="ml-8 mt-3 space-y-2">
+                      {service.alternatives
+                        .filter((altId) => serviceMap[altId])
+                        .map((altId) => {
+                          const alt = serviceMap[altId];
+                          return (
+                            <button
+                              key={alt.id}
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                handleStepClick(index);
+                                handleAlternativeClick(alt.id);
+                              }}
+                              className={`text-left block w-full p-2 rounded-lg text-sm transition-all duration-300 border-2 border-dashed ${
+                                currentStep === index &&
+                                selectedAlternative === alt.id
+                                  ? "bg-purple-50 border-purple-300"
+                                  : "border-gray-200 hover:border-purple-200 hover:bg-gray-50"
+                              }`}
+                            >
+                              <div className="flex items-center justify-between">
+                                <div>
+                                  <span className="font-medium text-gray-700">
+                                    {alt.name}
+                                  </span>
+                                  <span className="text-purple-600 ml-2 text-xs">
+                                    Alternative
+                                  </span>
+                                  {/* <div className="text-xs text-gray-500 mt-1">
                                       {alt.privacyScore}/10 Privacy Score
                                     </div> */}
-                                  </div>
-                                  <ArrowRight
-                                    size={14}
-                                    className="text-purple-400"
-                                  />
                                 </div>
-                              </button>
-                            );
-                          })}
-                      </div>
-                    )}
+                                <ArrowRight
+                                  size={14}
+                                  className="text-purple-400"
+                                />
+                              </div>
+                            </button>
+                          );
+                        })}
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
@@ -261,9 +242,7 @@ export default function PrivacyJourney() {
                 <h3 className="font-semibold text-gray-900 mb-2">
                   About {currentService.name}
                 </h3>
-                <p className="text-gray-700">
-                  {currentService.description}
-                </p>
+                <p className="text-gray-700">{currentService.description}</p>
               </div>
 
               {/* Service Facts */}
@@ -276,29 +255,24 @@ export default function PrivacyJourney() {
                     ([key, value], index) => (
                       <div key={index} className="flex items-start">
                         <span className="text-sm font-medium text-gray-600 capitalize min-w-[100px]">
-                          {key
-                            .replace(/([A-Z])/g, ' $1')
-                            .toLowerCase()}
-                          :
+                          {key.replace(/([A-Z])/g, " $1").toLowerCase()}:
                         </span>
                         <span className="text-sm text-gray-700 ml-2">
-                          {typeof value === 'boolean'
+                          {typeof value === "boolean"
                             ? value
-                              ? 'Yes'
-                              : 'No'
+                              ? "Yes"
+                              : "No"
                             : value}
                         </span>
                       </div>
-                    )
+                    ),
                   )}
                 </div>
               </div>
 
               {/* Pricing Information */}
               <div className="mb-6">
-                <h3 className="font-semibold text-gray-900 mb-3">
-                  Pricing
-                </h3>
+                <h3 className="font-semibold text-gray-900 mb-3">Pricing</h3>
                 <div className="space-y-2">
                   <div className="flex items-center">
                     <span className="text-sm font-medium text-gray-600 min-w-[80px]">
@@ -306,8 +280,8 @@ export default function PrivacyJourney() {
                     </span>
                     <span className="text-sm text-gray-700 ml-2">
                       {currentService.pricing.free
-                        ? 'Available'
-                        : 'Not Available'}
+                        ? "Available"
+                        : "Not Available"}
                     </span>
                   </div>
                   {currentService.pricing.startingPrice && (
@@ -335,9 +309,7 @@ export default function PrivacyJourney() {
                         size={16}
                         className="text-green-500 mt-0.5 mr-2 flex-shrink-0"
                       />
-                      <span className="text-gray-700 text-sm">
-                        {pro}
-                      </span>
+                      <span className="text-gray-700 text-sm">{pro}</span>
                     </li>
                   ))}
                 </ul>
@@ -355,9 +327,7 @@ export default function PrivacyJourney() {
                         size={16}
                         className="text-orange-500 mt-0.5 mr-2 flex-shrink-0"
                       />
-                      <span className="text-gray-700 text-sm">
-                        {con}
-                      </span>
+                      <span className="text-gray-700 text-sm">{con}</span>
                     </li>
                   ))}
                 </ul>
@@ -414,9 +384,7 @@ export default function PrivacyJourney() {
                       setSelectedAlternative(null);
                     }
                   }}
-                  disabled={
-                    currentStep === primaryServices.length - 1
-                  }
+                  disabled={currentStep === primaryServices.length - 1}
                   className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   Next Step →
@@ -424,8 +392,7 @@ export default function PrivacyJourney() {
               </div>
 
               {primaryServices[currentStep]?.alternatives &&
-                primaryServices[currentStep].alternatives.length >
-                  0 &&
+                primaryServices[currentStep].alternatives.length > 0 &&
                 !selectedAlternative && (
                   <>
                     <Separator className="my-6" />
@@ -441,9 +408,7 @@ export default function PrivacyJourney() {
                             return (
                               <button
                                 key={alt.id}
-                                onClick={() =>
-                                  handleAlternativeClick(alt.id)
-                                }
+                                onClick={() => handleAlternativeClick(alt.id)}
                                 className="text-left p-3 rounded-lg border border-dashed border-purple-200 hover:border-purple-400 hover:bg-purple-50 transition-all duration-300"
                               >
                                 <div className="flex items-center justify-between">
@@ -484,21 +449,18 @@ export default function PrivacyJourney() {
             </div>
           ) : (
             <div className="bg-white rounded-xl shadow-lg p-8 border border-gray-200 text-center">
-              <Shield
-                size={48}
-                className="text-gray-400 mx-auto mb-4"
-              />
+              <Shield size={48} className="text-gray-400 mx-auto mb-4" />
               <h3 className="text-lg font-semibold text-gray-900 mb-2">
                 Start Your Privacy Journey
               </h3>
               <p className="text-gray-600 mb-6">
-                Click on any step to learn about privacy-focused
-                alternatives to mainstream services.
+                Click on any step to learn about privacy-focused alternatives to
+                mainstream services.
               </p>
 
               <div className="text-sm text-gray-500">
-                Progress: {completedSteps.length} of{' '}
-                {primaryServices.length} steps completed
+                Progress: {completedSteps.length} of {primaryServices.length}{" "}
+                steps completed
                 {completedSteps.length > 0 && (
                   <div className="mt-2">
                     <div className="w-full bg-gray-200 rounded-full h-2">
@@ -506,8 +468,7 @@ export default function PrivacyJourney() {
                         className="bg-green-500 h-2 rounded-full transition-all duration-300"
                         style={{
                           width: `${
-                            (completedSteps.length /
-                              primaryServices.length) *
+                            (completedSteps.length / primaryServices.length) *
                             100
                           }%`,
                         }}
