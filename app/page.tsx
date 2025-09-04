@@ -20,6 +20,7 @@ export default function Home() {
     const [selectedAlternative, setSelectedAlternative] = useState<
         string | null
     >(null)
+    const [stepMessage, setStepMessage] = useState<string | null>(null)
 
     const primaryServices = getPrimaryServices()
     const serviceMap = createServiceMap()
@@ -44,6 +45,56 @@ export default function Home() {
             JSON.stringify(completedSteps)
         )
     }, [completedSteps])
+
+    useEffect(() => {
+        setStepMessage(null)
+        if (primaryServices[currentStep]) {
+            switch (primaryServices[currentStep].category) {
+                case 'dns':
+                    setStepMessage(
+                        'DNS (Domain Name System) providers resolve domain names into IP addresses. Choosing a privacy-conscious provider can reduce tracking and improve security.'
+                    )
+                    break
+                case 'browser':
+                    setStepMessage(
+                        'A browser is your gateway to the web. Privacy-focused browsers limit tracking, block invasive scripts, and prioritize user data protection.'
+                    )
+                    break
+                case 'search':
+                    setStepMessage(
+                        'Search engines index the web to help you find information. Privacy-respecting engines avoid profiling and do not log your queries.'
+                    )
+                    break
+                case 'vpn':
+                    setStepMessage(
+                        'A VPN (Virtual Private Network) encrypts your traffic and masks your IP address, protecting your identity and activity from surveillance.'
+                    )
+                    break
+                case 'email':
+                    setStepMessage(
+                        'Email remains a core communication tool. Privacy-first providers offer encryption and avoid data harvesting for advertising or profiling.'
+                    )
+                    break
+                case 'messaging':
+                    setStepMessage(
+                        'Messaging apps vary in their security. Services with end-to-end encryption and transparent policies better safeguard your conversations.'
+                    )
+                    break
+                case 'storage':
+                    setStepMessage(
+                        'Cloud storage solutions differ in how they handle your data. Privacy-focused options use encryption and ensure only you control access.'
+                    )
+                    break
+                case 'password':
+                    setStepMessage(
+                        'Password managers help create and store strong, unique passwords. Choosing a secure, privacy-conscious manager protects your credentials from breaches.'
+                    )
+                    break
+                default:
+                    setStepMessage(null)
+            }
+        }
+    }, [currentStep, primaryServices])
 
     const currentService = selectedAlternative
         ? serviceMap[selectedAlternative]
@@ -147,7 +198,7 @@ export default function Home() {
                                                 <h3 className="font-semibold text-gray-900">
                                                     {service.name}
                                                 </h3>
-                                                <p className="text-sm text-gray-600 capitalize">
+                                                <p className="text-sm text-gray-600 uppercase">
                                                     {service.category}
                                                 </p>
                                                 {/* <div className="flex items-center gap-2 mt-1">
@@ -172,62 +223,79 @@ export default function Home() {
 
                                     {service.alternatives &&
                                         service.alternatives.length > 0 && (
-                                            <div className="ml-8 mt-3 space-y-2">
-                                                {service.alternatives
-                                                    .filter(
-                                                        (altId) =>
-                                                            serviceMap[altId]
-                                                    )
-                                                    .map((altId) => {
-                                                        const alt =
-                                                            serviceMap[altId]
-                                                        return (
-                                                            <button
-                                                                key={alt.id}
-                                                                onClick={(
-                                                                    e
-                                                                ) => {
-                                                                    handleStepClick(
-                                                                        index
-                                                                    )
-                                                                    handleAlternativeClick(
-                                                                        alt.id
-                                                                    )
-                                                                }}
-                                                                className={`cursor-pointer text-left block w-full p-2 rounded-lg text-sm transition-all duration-300 border-2 border-dashed ${
-                                                                    currentStep ===
-                                                                        index &&
-                                                                    selectedAlternative ===
-                                                                        alt.id
-                                                                        ? 'bg-purple-50 border-purple-300'
-                                                                        : 'border-gray-200 hover:border-purple-200 hover:bg-gray-50'
-                                                                }`}
-                                                            >
-                                                                <div className="flex items-center justify-between">
-                                                                    <div>
-                                                                        <span className="font-medium text-gray-700">
-                                                                            {
-                                                                                alt.name
-                                                                            }
-                                                                        </span>
-                                                                        <span className="text-purple-600 ml-2 text-xs">
-                                                                            Alternative
-                                                                        </span>
-                                                                        {/* <div className="text-xs text-gray-500 mt-1">
+                                            <>
+                                                <div className="ml-8 mt-3 space-y-2">
+                                                    {service.alternatives
+                                                        .filter(
+                                                            (altId) =>
+                                                                serviceMap[
+                                                                    altId
+                                                                ]
+                                                        )
+                                                        .map((altId) => {
+                                                            const alt =
+                                                                serviceMap[
+                                                                    altId
+                                                                ]
+                                                            return (
+                                                                <button
+                                                                    key={alt.id}
+                                                                    onClick={(
+                                                                        e
+                                                                    ) => {
+                                                                        handleStepClick(
+                                                                            index
+                                                                        )
+                                                                        handleAlternativeClick(
+                                                                            alt.id
+                                                                        )
+                                                                    }}
+                                                                    className={`cursor-pointer text-left block w-full p-2 rounded-lg text-sm transition-all duration-300 border-2 border-dashed ${
+                                                                        currentStep ===
+                                                                            index &&
+                                                                        selectedAlternative ===
+                                                                            alt.id
+                                                                            ? 'bg-purple-50 border-purple-300'
+                                                                            : 'border-gray-200 hover:border-purple-200 hover:bg-gray-50'
+                                                                    }`}
+                                                                >
+                                                                    <div className="flex items-center justify-between">
+                                                                        <div>
+                                                                            <span className="font-medium text-gray-700">
+                                                                                {
+                                                                                    alt.name
+                                                                                }
+                                                                            </span>
+                                                                            <span className="text-purple-600 ml-2 text-xs">
+                                                                                Alternative
+                                                                            </span>
+                                                                            {/* <div className="text-xs text-gray-500 mt-1">
                                       {alt.privacyScore}/10 Privacy Score
                                     </div> */}
+                                                                        </div>
+                                                                        <ArrowRight
+                                                                            size={
+                                                                                14
+                                                                            }
+                                                                            className="text-purple-400"
+                                                                        />
                                                                     </div>
-                                                                    <ArrowRight
-                                                                        size={
-                                                                            14
-                                                                        }
-                                                                        className="text-purple-400"
-                                                                    />
-                                                                </div>
-                                                            </button>
-                                                        )
-                                                    })}
-                                            </div>
+                                                                </button>
+                                                            )
+                                                        })}
+                                                </div>
+                                                {currentStep === index &&
+                                                    stepMessage !== null && (
+                                                        <Alert
+                                                            variant="default"
+                                                            className="mt-4"
+                                                        >
+                                                            <AlertDescription className="text-sm text-gray-700">
+                                                                {stepMessage}
+                                                            </AlertDescription>
+                                                        </Alert>
+                                                    )}
+                                            </>
                                         )}
                                 </div>
                             </div>
@@ -243,7 +311,7 @@ export default function Home() {
                                     <h2 className="text-2xl font-bold text-gray-900">
                                         {currentService.name}
                                     </h2>
-                                    <p className="text-sm text-gray-600 tracking-wide capitalize">
+                                    <p className="text-sm text-gray-600 tracking-wide uppercase">
                                         {currentService.category}
                                         {selectedAlternative && (
                                             <span className="text-purple-600 ml-2">
@@ -282,7 +350,7 @@ export default function Home() {
                                                 key={index}
                                                 className="flex items-start justify-between"
                                             >
-                                                <span className="text-sm font-medium text-gray-600 capitalize min-w-[100px]">
+                                                <span className="text-sm font-medium text-gray-600 uppercase min-w-[100px]">
                                                     {key
                                                         .replace(
                                                             /([A-Z])/g,
