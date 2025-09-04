@@ -31,18 +31,19 @@ export interface ComparisonPair {
 }
 
 export type ServiceCategory =
-    | 'email'
-    | 'search'
-    | 'browser'
+    | 'dns'
     | 'vpn'
+    | 'browser'
+    | 'search'
+    | 'email'
     | 'messaging'
-    | 'storage'
-    | 'social'
     | 'video-call'
+    | 'social'
+    | 'storage'
+    | 'file-sharing'
     | 'password'
     | 'notes'
     | 'calendar'
-    | 'file-sharing'
     | 'productivity'
     | 'analytics'
     | 'ads'
@@ -51,7 +52,6 @@ export type ServiceCategory =
     | 'entertainment'
     | 'news'
     | 'education'
-    | 'dns'
     | 'mobile-os'
     | 'other'
 
