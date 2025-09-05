@@ -8,7 +8,7 @@ import { Separator } from '@/components/ui/separator';
 import { createServiceMap, getPrimaryServices } from '@/lib/services';
 
 export default function Home() {
-  const [currentStep, setCurrentStep] = useState(0);
+  const [currentStep, setCurrentStep] = useState<number>(0);
   const [completedSteps, setCompletedSteps] = useState<number[]>([]);
   const [selectedAlternative, setSelectedAlternative] = useState<string | null>(null);
   const [stepMessage, setStepMessage] = useState<string | null>(null);
@@ -17,6 +17,7 @@ export default function Home() {
   const serviceMap = createServiceMap();
 
   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     const stored = sessionStorage.getItem('privacy-journey-completed-steps');
     if (stored) {
       try {
@@ -127,23 +128,6 @@ export default function Home() {
         </Alert>
       </header>
 
-      {/* <Alert variant="default" className="mb-6">
-                <AlertDescription style={{ color: 'black' }}>
-                    Embark on your privacy journey with a curated list of
-                    services designed to enhance your online security and data
-                    protection. Each step introduces privacy-focused
-                    alternatives to mainstream platforms, complete with detailed
-                    insights and key features to help you make informed
-                    decisions. This list is thoughtfully ordered to follow the
-                    natural flow of how we access and use the internet —
-                    starting from your DNS provider, browser, moving to your
-                    search engine, VPN, and then to essential tools like email,
-                    messaging apps, cloud storage, and social media. Remember,
-                    improving your privacy is a journey, not a destination —
-                    take it one step at a time.
-                </AlertDescription>
-            </Alert> */}
-
       <div className="flex flex-col-reverse gap-8 md:grid md:grid-cols-2">
         <div className="relative">
           <div className="absolute top-0 bottom-0 left-6 w-0.5 bg-gray-300"></div>
@@ -179,14 +163,6 @@ export default function Home() {
                       <div>
                         <h3 className="font-semibold text-gray-900">{service.name}</h3>
                         <p className="text-sm text-gray-600 uppercase">{service.category}</p>
-                        {/* <div className="flex items-center gap-2 mt-1">
-                            <span className="text-xs bg-blue-100 text-blue-800 px-2 py-0.5 rounded">
-                              {service.privacyScore}/10 Privacy Score
-                            </span>
-                            <span className={`text-xs ${getComplianceDisplay(service.euCompliance).color}`}>
-                              {getComplianceDisplay(service.euCompliance).text}
-                            </span>
-                          </div> */}
                       </div>
                       <ArrowRight
                         size={16}
@@ -223,9 +199,6 @@ export default function Home() {
                                     <span className="ml-2 text-xs text-purple-600">
                                       Alternative
                                     </span>
-                                    {/* <div className="text-xs text-gray-500 mt-1">
-                                      {alt.privacyScore}/10 Privacy Score
-                                    </div> */}
                                   </div>
                                   <ArrowRight size={14} className="text-purple-400" />
                                 </div>
@@ -248,7 +221,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="lg:sticky lg:top-4">
+        <div className="overscroll-none md:sticky md:top-4 md:h-[calc(100vh-2rem)] md:overflow-y-auto">
           {currentService ? (
             <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-lg">
               <div className="mb-4 flex items-start justify-between">
@@ -260,14 +233,6 @@ export default function Home() {
                       <span className="ml-2 text-purple-600">(Alternative Option)</span>
                     )}
                   </p>
-                  {/* <div className="flex items-center gap-3 mt-2">
-                      <span className="text-sm bg-blue-100 text-blue-800 px-2 py-1 rounded font-medium">
-                        Privacy Score: {currentService.privacyScore}/10
-                      </span>
-                      <span className={`text-sm font-medium ${getComplianceDisplay(currentService.euCompliance).color}`}>
-                        {getComplianceDisplay(currentService.euCompliance).text}
-                      </span>
-                    </div> */}
                 </div>
               </div>
 
@@ -418,9 +383,6 @@ export default function Home() {
                                 <div className="flex items-center justify-between">
                                   <div>
                                     <span className="font-medium text-purple-700">{alt.name}</span>
-                                    {/* <div className="text-xs text-purple-600 mt-1">
-                                        {alt.privacyScore}/10 Privacy Score
-                                      </div> */}
                                   </div>
                                   <ArrowRight size={14} className="text-purple-400" />
                                 </div>
