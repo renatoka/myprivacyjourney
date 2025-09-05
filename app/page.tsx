@@ -10,7 +10,7 @@ import { createServiceMap, getPrimaryServices } from '@/lib/services';
 import { useEffect, useState } from 'react';
 
 export default function Home() {
-  const [currentStep, setCurrentStep] = useState<number>(0);
+  const [currentStep, setCurrentStep] = useState<number>(-1);
   const [completedSteps, setCompletedSteps] = useState<number[]>([]);
   const [selectedAlternative, setSelectedAlternative] = useState<string | null>(null);
 
