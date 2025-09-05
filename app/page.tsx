@@ -246,7 +246,7 @@ export default function Home() {
                 <div className="grid gap-2">
                   {Object.entries(currentService.facts).map(([key, value], index) => (
                     <div key={index} className="flex items-start justify-between">
-                      <span className="min-w-[100px] text-sm font-medium text-gray-600 uppercase">
+                      <span className="min-w-[100px] text-sm font-medium text-gray-600 capitalize">
                         {key.replace(/([A-Z])/g, ' $1').toLowerCase()}:
                       </span>
                       <span className="ml-2 text-sm text-gray-700">
@@ -305,12 +305,12 @@ export default function Home() {
                 </ul>
               </div>
 
-              <div className="mb-6 flex gap-3">
+              <div className="mb-6 flex flex-col gap-3 md:flex-row">
                 <a
                   href={currentService.website}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-700"
+                  className="flex items-center justify-center gap-2 rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-700"
                 >
                   Visit Website
                   <ExternalLink size={14} />
