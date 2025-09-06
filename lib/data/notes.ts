@@ -39,6 +39,17 @@ export const notesServices: Service[] = [
       undetermined: true,
       description: 'Might take time to migrate existing notes',
     },
+    guides: {
+      docs: 'https://standardnotes.com/help/self-hosting/getting-started',
+      migrationGuide: null,
+      platforms: {
+        windows: null,
+        macos: null,
+        linux: 'https://standardnotes.com/help/self-hosting/docker',
+        ios: null,
+        android: null,
+      },
+    },
   },
 
   // Alternatives
@@ -77,6 +88,17 @@ export const notesServices: Service[] = [
     setupTime: {
       undetermined: true,
       description: 'Might take time to migrate existing notes',
+    },
+    guides: {
+      docs: 'https://help.notesnook.com/',
+      migrationGuide: 'https://help.notesnook.com/importing-notes/',
+      platforms: {
+        windows: null,
+        macos: null,
+        linux: null,
+        ios: null,
+        android: null,
+      },
     },
   },
 
@@ -117,6 +139,17 @@ export const notesServices: Service[] = [
       undetermined: true,
       description: 'Might take time to migrate existing notes',
     },
+    guides: {
+      docs: 'https://joplinapp.org/help/install/',
+      migrationGuide: null,
+      platforms: {
+        windows: 'https://joplinapp.org/help/install/',
+        macos: 'https://joplinapp.org/help/install/',
+        linux: 'https://joplinapp.org/help/install/',
+        ios: null,
+        android: null,
+      },
+    },
   },
 
   {
@@ -154,6 +187,17 @@ export const notesServices: Service[] = [
     setupTime: {
       undetermined: true,
       description: 'Might take time to migrate existing notes',
+    },
+    guides: {
+      docs: 'https://crypt.ee/faq',
+      migrationGuide: null,
+      platforms: {
+        windows: 'https://crypt.ee/download#desktops',
+        macos: 'https://crypt.ee/download#desktops',
+        linux: 'https://crypt.ee/download#desktops',
+        ios: 'https://crypt.ee/download#ios',
+        android: 'https://crypt.ee/download#android',
+      },
     },
   },
 
@@ -193,6 +237,17 @@ export const notesServices: Service[] = [
     setupTime: {
       undetermined: true,
       description: 'Might take time to migrate existing notes',
+    },
+    guides: {
+      docs: 'https://orgmode.org/org.html',
+      migrationGuide: null,
+      platforms: {
+        windows: null,
+        macos: null,
+        linux: null,
+        ios: null,
+        android: null,
+      },
     },
   },
 ];

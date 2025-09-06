@@ -39,6 +39,17 @@ export const fileSharingServices: Service[] = [
       undetermined: true,
       description: 'Time varies based on data migration needs',
     },
+    guides: {
+      docs: 'https://docs.onionshare.org/2.6.3/en/install.html',
+      migrationGuide: null,
+      platforms: {
+        windows: 'https://onionshare.org/',
+        macos: 'https://onionshare.org/',
+        linux: 'https://flathub.org/apps/details/org.onionshare.OnionShare',
+        ios: 'https://apps.apple.com/app/onionshare/id1601890129',
+        android: null,
+      },
+    },
   },
 
   // Alternatives
@@ -77,6 +88,19 @@ export const fileSharingServices: Service[] = [
     setupTime: {
       undetermined: true,
       description: 'Time varies based on data migration needs',
+    },
+    guides: {
+      docs: 'https://github.com/syncthing/syncthing/blob/main/docs/installation.md',
+      migrationGuide: null,
+      platforms: {
+        windows:
+          'https://github.com/syncthing/syncthing/releases/latest/download/syncthing-windows-amd64.exe',
+        macos:
+          'https://github.com/syncthing/syncthing/releases/latest/download/syncthing-macos-amd64.zip',
+        linux: 'https://flathub.org/apps/details/org.syncthing.Syncthing',
+        ios: null,
+        android: null,
+      },
     },
   },
 
@@ -117,6 +141,19 @@ export const fileSharingServices: Service[] = [
       undetermined: true,
       description: 'Time varies based on data migration needs',
     },
+    guides: {
+      docs: 'https://github.com/syncthing/syncthing/blob/main/docs/installation.md',
+      migrationGuide: null,
+      platforms: {
+        windows:
+          'https://github.com/syncthing/syncthing/releases/latest/download/syncthing-windows-amd64.exe',
+        macos:
+          'https://github.com/syncthing/syncthing/releases/latest/download/syncthing-macos-amd64.zip',
+        linux: 'https://flathub.org/apps/details/org.syncthing.Syncthing',
+        ios: null,
+        android: null,
+      },
+    },
   },
 
   {
@@ -155,6 +192,18 @@ export const fileSharingServices: Service[] = [
     setupTime: {
       undetermined: true,
       description: 'Time varies based on data migration needs',
+    },
+    guides: {
+      docs: 'https://docs.nextcloud.com/server/latest/admin_manual/installation/index.html',
+      migrationGuide: null,
+      platforms: {
+        windows: 'https://docs.nextcloud.com/server/latest/admin_manual/installation/windows.html',
+        macos: 'https://docs.nextcloud.com/server/latest/admin_manual/installation/macos.html',
+        linux: 'https://docs.nextcloud.com/server/latest/admin_manual/installation/linux.html',
+        ios: 'https://apps.apple.com/app/nextcloud/id1125422120',
+        android:
+          'https://play.google.com/store/apps/details?id=com.nextcloud.client&hl=en_US&gl=US',
+      },
     },
   },
 ];

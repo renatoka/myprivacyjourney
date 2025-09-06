@@ -36,6 +36,17 @@ export const searchServices: Service[] = [
     alternatives: ['brave-search', 'duckduckgo', 'searxng'],
     difficulty: 'easy',
     setupTime: { minutes: 5, description: 'Simply start using the search engine' },
+    guides: {
+      docs: 'https://www.startpage.com/',
+      migrationGuide: null,
+      platforms: {
+        windows: null,
+        macos: null,
+        linux: null,
+        ios: null,
+        android: null,
+      },
+    },
   },
 
   // Alternatives
@@ -73,6 +84,17 @@ export const searchServices: Service[] = [
     alternatives: ['duckduckgo', 'startpage', 'searxng'],
     difficulty: 'easy',
     setupTime: { minutes: 5, description: 'Simply start using the search engine' },
+    guides: {
+      docs: 'https://search.brave.com/',
+      migrationGuide: null,
+      platforms: {
+        windows: 'https://search.brave.com/default',
+        macos: 'https://search.brave.com/default',
+        linux: 'https://search.brave.com/default',
+        ios: null,
+        android: null,
+      },
+    },
   },
 
   {
@@ -108,6 +130,20 @@ export const searchServices: Service[] = [
     alternatives: ['brave-search', 'startpage', 'searxng'],
     difficulty: 'easy',
     setupTime: { minutes: 5, description: 'Simply start using the search engine' },
+    guides: {
+      docs: 'https://duckduckgo.com/',
+      migrationGuide: null,
+      platforms: {
+        windows:
+          'https://duckduckgo.com/duckduckgo-help-pages/desktop/adding-duckduckgo-to-your-browser',
+        macos:
+          'https://duckduckgo.com/duckduckgo-help-pages/desktop/adding-duckduckgo-to-your-browser',
+        linux:
+          'https://duckduckgo.com/duckduckgo-help-pages/desktop/adding-duckduckgo-to-your-browser',
+        ios: null,
+        android: null,
+      },
+    },
   },
 
   {
@@ -143,5 +179,16 @@ export const searchServices: Service[] = [
     alternatives: ['brave-search', 'duckduckgo', 'startpage'],
     difficulty: 'easy',
     setupTime: { minutes: 5, description: 'Simply start using the search engine' },
+    guides: {
+      docs: 'https://searxng.org/',
+      migrationGuide: null,
+      platforms: {
+        windows: 'https://docs.searxng.org/admin/installation-searxng.html',
+        macos: 'https://docs.searxng.org/admin/installation-searxng.html',
+        linux: 'https://docs.searxng.org/admin/installation-searxng.html',
+        ios: null,
+        android: null,
+      },
+    },
   },
 ];

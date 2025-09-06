@@ -41,6 +41,17 @@ export const messagingServices: Service[] = [
       description:
         'Could take longer if migrating from another application (contacts, groups, etc.)',
     },
+    guides: {
+      docs: 'https://support.signal.org/',
+      migrationGuide: null,
+      platforms: {
+        windows: 'https://signal.org/download/',
+        macos: 'https://signal.org/download/',
+        linux: 'https://signal.org/download/',
+        ios: 'https://signal.org/download/',
+        android: 'https://signal.org/download/',
+      },
+    },
   },
 
   // Alternatives
@@ -81,6 +92,17 @@ export const messagingServices: Service[] = [
       description:
         'Could take longer if migrating from another application (contacts, groups, etc.)',
     },
+    guides: {
+      docs: 'https://molly.im/',
+      migrationGuide: 'https://github.com/mollyim/mollyim-android/wiki/Migrating-From-Signal',
+      platforms: {
+        windows: null,
+        macos: null,
+        linux: null,
+        ios: null,
+        android: 'https://molly.im/fdroid/',
+      },
+    },
   },
 
   {
@@ -119,6 +141,17 @@ export const messagingServices: Service[] = [
       minutes: 30,
       description:
         'Could take longer if migrating from another application (contacts, groups, etc.)',
+    },
+    guides: {
+      docs: 'https://simplex.chat/docs/guide/readme.html',
+      migrationGuide: null,
+      platforms: {
+        windows: 'https://simplex.chat/downloads/',
+        macos: 'https://simplex.chat/downloads/',
+        linux: 'https://simplex.chat/downloads/',
+        ios: 'https://apps.apple.com/us/app/simplex-chat/id1605771084/',
+        android: 'https://play.google.com/store/apps/details?id=chat.simplex.app/',
+      },
     },
   },
 
@@ -159,6 +192,17 @@ export const messagingServices: Service[] = [
       minutes: 30,
       description:
         'Could take longer if migrating from another application (contacts, groups, etc.)',
+    },
+    guides: {
+      docs: 'https://briarproject.org/manual/',
+      migrationGuide: null,
+      platforms: {
+        windows: null,
+        macos: null,
+        linux: null,
+        ios: null,
+        android: 'https://briarproject.org/download-briar/',
+      },
     },
   },
 ];

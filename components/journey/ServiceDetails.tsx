@@ -104,6 +104,78 @@ export function ServiceDetails({
         </ul>
       </div>
 
+      <div className="mb-6">
+        <h3 className="mb-3 font-semibold text-gray-900">Setup & Migration Guides</h3>
+        {service.guides ? (
+          <div className="grid gap-2">
+            {service.guides.docs && (
+              <div className="flex items-center justify-between">
+                <span className="min-w-[80px] text-sm font-medium text-gray-600">
+                  Documentation:
+                </span>
+                <a
+                  href={service.guides.docs}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-gray-700"
+                >
+                  Official Docs
+                </a>
+              </div>
+            )}
+            {service.guides.migrationGuide && (
+              <div className="flex items-center justify-between">
+                <span className="min-w-[80px] text-sm font-medium text-gray-600">
+                  Migration Guide:
+                </span>
+                <a
+                  href={service.guides.migrationGuide}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-gray-700 hover:underline"
+                >
+                  View Guide
+                </a>
+              </div>
+            )}
+            {service.guides.platforms && (
+              <div className="grid gap-2">
+                {Object.entries(service.guides.platforms).map(
+                  ([platform, url], index) =>
+                    url && (
+                      <div key={index} className="flex items-center justify-between">
+                        <span className="min-w-[80px] text-sm font-medium text-gray-600">
+                          {platform === 'ios'
+                            ? 'iOS'
+                            : platform === 'macos'
+                              ? 'macOS'
+                              : platform.charAt(0).toUpperCase() + platform.slice(1)}
+                          :
+                        </span>
+                        <a
+                          href={url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-sm text-gray-700 hover:underline"
+                        >
+                          View Guide
+                        </a>
+                      </div>
+                    )
+                )}
+              </div>
+            )}
+          </div>
+        ) : (
+          <span className="text-sm text-gray-500">
+            No official guides available.{' '}
+            <span className="text-xs">
+              (prone to research error, will be reviewed again in the future)
+            </span>
+          </span>
+        )}
+      </div>
+
       <div className="mb-6 flex flex-col gap-3 md:flex-row">
         <a
           href={service.website}
@@ -112,7 +184,7 @@ export function ServiceDetails({
           className="flex items-center justify-center gap-2 rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-700"
         >
           Visit Website
-          <ExternalLink size={14} />
+          <ExternalLink size={16} />
         </a>
 
         {!isCompleted ? (
@@ -127,7 +199,7 @@ export function ServiceDetails({
             onClick={onMarkUndone}
             className="flex cursor-pointer items-center gap-2 rounded-lg bg-gray-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-gray-700"
           >
-            <Undo2 size={14} />
+            <Undo2 size={16} />
             Mark as Undone
           </button>
         )}

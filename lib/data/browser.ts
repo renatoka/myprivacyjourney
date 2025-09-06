@@ -37,6 +37,17 @@ export const browserService: Service[] = [
     alternatives: ['firefox', 'brave-browser', 'arkenfox'],
     difficulty: 'easy',
     setupTime: { minutes: 10, description: 'Download and install the browser' },
+    guides: {
+      docs: 'https://mullvad.net/en/help/install-mullvad-browser',
+      migrationGuide: null,
+      platforms: {
+        windows: 'https://mullvad.net/en/download/browser/windows',
+        macos: 'https://mullvad.net/en/download/browser/macos',
+        linux: 'https://mullvad.net/en/download/browser/linux',
+        ios: null,
+        android: null,
+      },
+    },
   },
 
   // Alternatives
@@ -73,6 +84,17 @@ export const browserService: Service[] = [
     alternatives: ['mullvad-browser', 'brave-browser', 'arkenfox'],
     difficulty: 'easy',
     setupTime: { minutes: 10, description: 'Download and install the browser' },
+    guides: {
+      docs: 'https://support.mozilla.org/en-US/kb/firefox-privacy-and-security-features',
+      migrationGuide: null,
+      platforms: {
+        windows: 'https://www.firefox.com/en-US/',
+        macos: 'https://www.firefox.com/en-US/',
+        linux: 'https://www.firefox.com/en-US/',
+        ios: null,
+        android: null,
+      },
+    },
   },
 
   {
@@ -108,6 +130,17 @@ export const browserService: Service[] = [
     alternatives: ['mullvad-browser', 'firefox', 'arkenfox'],
     difficulty: 'easy',
     setupTime: { minutes: 10, description: 'Download and install the browser' },
+    guides: {
+      docs: 'https://brave.com/download/',
+      migrationGuide: null,
+      platforms: {
+        windows: 'https://support.brave.app/hc/en-us/sections/360003286112-Installing-Brave',
+        macos: 'https://support.brave.app/hc/en-us/sections/360003286112-Installing-Brave',
+        linux: 'https://brave.com/linux/',
+        ios: null,
+        android: null,
+      },
+    },
   },
 
   {
@@ -144,5 +177,16 @@ export const browserService: Service[] = [
     alternatives: ['mullvad-browser', 'firefox', 'brave-browser'],
     difficulty: 'easy',
     setupTime: { minutes: 10, description: 'Download and install the browser' },
+    guides: {
+      docs: 'https://github.com/arkenfox/user.js',
+      migrationGuide: null,
+      platforms: {
+        windows: null,
+        macos: null,
+        linux: null,
+        ios: null,
+        android: null,
+      },
+    },
   },
 ];

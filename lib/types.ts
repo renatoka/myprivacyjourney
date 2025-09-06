@@ -13,6 +13,17 @@ export interface Service {
   alternatives?: string[];
   difficulty?: DifficultyLevel;
   setupTime?: SetupTime;
+  guides?: {
+    docs?: string | null;
+    migrationGuide?: string | null;
+    platforms?: {
+      windows?: string | null;
+      macos?: string | null;
+      linux?: string | null;
+      ios?: string | null;
+      android?: string | null;
+    };
+  };
 }
 
 export interface ServiceFacts {

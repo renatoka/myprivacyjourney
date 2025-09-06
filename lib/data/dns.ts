@@ -37,6 +37,17 @@ export const dnsServices: Service[] = [
     alternatives: ['cloudflare-dns', 'mullvad-dns', 'adguard-dns', 'control-d-free'],
     difficulty: 'easy',
     setupTime: { minutes: 5, description: 'Simple configuration change' },
+    guides: {
+      docs: 'https://docs.quad9.net/',
+      migrationGuide: null,
+      platforms: {
+        windows: 'https://docs.quad9.net/Setup_Guides/Windows/Windows_10/',
+        macos: 'https://docs.quad9.net/Setup_Guides/MacOS/Big_Sur_and_later_(Encrypted)/',
+        linux: null,
+        ios: 'https://quad9dns.github.io/documentation/Setup_Guides/iOS/iOS_14_and_later_(Encrypted)/',
+        android: 'https://docs.quad9.net/Setup_Guides/Android/Android_9+_(Encrypted)/',
+      },
+    },
   },
 
   // Alternatives
@@ -69,6 +80,17 @@ export const dnsServices: Service[] = [
     alternatives: ['quad9', 'mullvad-dns', 'adguard-dns', 'control-d-free'],
     difficulty: 'easy',
     setupTime: { minutes: 5, description: 'Simple configuration change' },
+    guides: {
+      docs: 'https://developers.cloudflare.com/1.1.1.1/setup/',
+      migrationGuide: null,
+      platforms: {
+        windows: 'https://developers.cloudflare.com/1.1.1.1/setup/windows/',
+        macos: 'https://developers.cloudflare.com/1.1.1.1/setup/macos/',
+        linux: 'https://developers.cloudflare.com/1.1.1.1/setup/linux/',
+        ios: 'https://developers.cloudflare.com/1.1.1.1/setup/ios/',
+        android: 'https://developers.cloudflare.com/1.1.1.1/setup/android/',
+      },
+    },
   },
 
   {
@@ -129,6 +151,17 @@ export const dnsServices: Service[] = [
     alternatives: ['quad9', 'cloudflare-dns', 'mullvad-dns', 'control-d-free'],
     difficulty: 'easy',
     setupTime: { minutes: 5, description: 'Simple configuration change' },
+    guides: {
+      docs: 'https://adguard-dns.io/kb/',
+      migrationGuide: null,
+      platforms: {
+        windows: 'https://adguard-dns.io/en/support/configure_on_device.html',
+        macos: 'https://adguard-dns.io/en/support/configure_on_device.html',
+        linux: 'https://adguard-dns.io/en/support/configure_on_device.html',
+        ios: 'https://adguard-dns.io/en/support/configure_on_device.html',
+        android: 'https://adguard-dns.io/en/support/configure_on_device.html',
+      },
+    },
   },
 
   {
@@ -155,5 +188,16 @@ export const dnsServices: Service[] = [
     alternatives: ['quad9', 'cloudflare-dns', 'mullvad-dns', 'adguard-dns'],
     difficulty: 'easy',
     setupTime: { minutes: 5, description: 'Simple configuration change' },
+    guides: {
+      docs: 'https://docs.controld.com/',
+      migrationGuide: null,
+      platforms: {
+        windows: 'https://docs.controld.com/docs/platform-windows',
+        macos: null,
+        linux: null,
+        ios: null,
+        android: null,
+      },
+    },
   },
 ];

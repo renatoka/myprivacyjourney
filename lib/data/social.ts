@@ -40,6 +40,17 @@ export const socialServices: Service[] = [
       undetermined: true,
       description: 'Hard due to nature of people not wanting to switch',
     },
+    guides: {
+      docs: 'https://joinmastodon.org/',
+      migrationGuide: null,
+      platforms: {
+        windows: null,
+        macos: null,
+        linux: null,
+        ios: 'https://apps.apple.com/app/mastodon/id1571998974',
+        android: 'https://play.google.com/store/apps/details?id=org.joinmastodon.android',
+      },
+    },
   },
 
   // Alternative
@@ -79,6 +90,17 @@ export const socialServices: Service[] = [
     setupTime: {
       undetermined: true,
       description: 'Hard due to nature of people not wanting to switch',
+    },
+    guides: {
+      docs: 'https://element.io/docs',
+      migrationGuide: 'https://element.io/get-started',
+      platforms: {
+        windows: 'https://element.io/get-started#desktop',
+        macos: 'https://element.io/get-started#desktop',
+        linux: 'https://element.io/get-started#desktop',
+        ios: 'https://apps.apple.com/app/element/id1083446080',
+        android: 'https://play.google.com/store/apps/details?id=im.vector.app',
+      },
     },
   },
 ];

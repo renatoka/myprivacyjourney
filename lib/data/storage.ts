@@ -39,6 +39,17 @@ export const storageServices: Service[] = [
       undetermined: true,
       description: 'Time varies based on data migration needs',
     },
+    guides: {
+      docs: 'https://proton.me/support/set-up-proton-drive',
+      migrationGuide: null,
+      platforms: {
+        windows: 'https://proton.me/support/proton-drive-windows-app',
+        macos: 'https://proton.me/support/drive-macos-guide',
+        linux: null,
+        ios: null,
+        android: null,
+      },
+    },
   },
 
   // Alternatives
@@ -78,6 +89,18 @@ export const storageServices: Service[] = [
       undetermined: true,
       description: 'Time varies based on data migration needs',
     },
+    guides: {
+      docs: 'https://support.tresorit.com/hc/en-us/articles/219312887-Set-up-Tresorit-Drive',
+      migrationGuide:
+        'https://support.tresorit.com/hc/en-us/articles/216835708-How-to-transfer-all-my-files-from-Dropbox-to-Tresorit',
+      platforms: {
+        windows: null,
+        macos: null,
+        linux: null,
+        ios: null,
+        android: null,
+      },
+    },
   },
 
   {
@@ -116,6 +139,17 @@ export const storageServices: Service[] = [
     setupTime: {
       undetermined: true,
       description: 'Time varies based on data migration needs',
+    },
+    guides: {
+      docs: 'https://docs.peergos.org/',
+      migrationGuide: null,
+      platforms: {
+        windows: null,
+        macos: null,
+        linux: null,
+        ios: null,
+        android: null,
+      },
     },
   },
 ];

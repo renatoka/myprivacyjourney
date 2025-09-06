@@ -38,6 +38,17 @@ export const passwordServices: Service[] = [
     alternatives: ['proton-pass', 'onepassword', 'psono', 'keepassxc'],
     difficulty: 'medium',
     setupTime: { minutes: 30, description: 'Includes account creation and application setup' },
+    guides: {
+      docs: 'https://bitwarden.com/help/',
+      migrationGuide: 'https://bitwarden.com/help/import-data/',
+      platforms: {
+        windows: 'https://bitwarden.com/help/install-on-premise-windows/',
+        macos: null,
+        linux: 'https://bitwarden.com/help/install-on-premise-linux/',
+        ios: null,
+        android: null,
+      },
+    },
   },
 
   // Alternatives
@@ -111,6 +122,17 @@ export const passwordServices: Service[] = [
     alternatives: ['bitwarden', 'proton-pass', 'psono', 'keepassxc'],
     difficulty: 'medium',
     setupTime: { minutes: 30, description: 'Includes account creation and application setup' },
+    guides: {
+      docs: 'https://support.1password.com/',
+      migrationGuide: 'https://support.1password.com/import/',
+      platforms: {
+        windows: 'https://1password.com/downloads/',
+        macos: 'https://1password.com/downloads/',
+        linux: 'https://1password.com/downloads/',
+        ios: 'https://1password.com/downloads/',
+        android: 'https://1password.com/downloads/',
+      },
+    },
   },
 
   {
@@ -146,6 +168,17 @@ export const passwordServices: Service[] = [
     alternatives: ['bitwarden', 'proton-pass', 'onepassword', 'keepassxc'],
     difficulty: 'medium',
     setupTime: { minutes: 30, description: 'Includes account creation and application setup' },
+    guides: {
+      docs: 'https://doc.psono.com/',
+      migrationGuide: null,
+      platforms: {
+        windows: 'https://psono.com/download',
+        macos: 'https://psono.com/download',
+        linux: 'https://psono.com/download',
+        ios: null,
+        android: null,
+      },
+    },
   },
 
   {
@@ -182,5 +215,16 @@ export const passwordServices: Service[] = [
     alternatives: ['bitwarden', 'proton-pass', 'onepassword', 'psono'],
     difficulty: 'medium',
     setupTime: { minutes: 30, description: 'Includes account creation and application setup' },
+    guides: {
+      docs: 'https://keepassxc.org/docs/KeePassXC_GettingStarted',
+      migrationGuide: null,
+      platforms: {
+        windows: 'https://keepassxc.org/download/',
+        macos: 'https://keepassxc.org/download/',
+        linux: 'https://keepassxc.org/download/',
+        ios: null,
+        android: null,
+      },
+    },
   },
 ];

@@ -37,6 +37,17 @@ export const emailServices: Service[] = [
     alternatives: ['mailbox-org', 'tuta-mail'],
     difficulty: 'medium',
     setupTime: { undetermined: true, description: 'Time varies based on data migration needs' },
+    guides: {
+      docs: 'https://proton.me/support/knowledge-base/getting-started',
+      migrationGuide: 'https://proton.me/support/switch-from-gmail-to-proton',
+      platforms: {
+        windows: 'https://proton.me/support/protonmail-bridge-install',
+        macos: 'https://proton.me/support/protonmail-bridge-install',
+        linux: 'https://proton.me/support/protonmail-bridge-install',
+        ios: null,
+        android: null,
+      },
+    },
   },
 
   // Alternatives
@@ -73,6 +84,18 @@ export const emailServices: Service[] = [
     alternatives: ['proton-mail', 'tuta-mail'],
     difficulty: 'medium',
     setupTime: { undetermined: true, description: 'Time varies based on data migration needs' },
+    guides: {
+      docs: 'https://kb.mailbox.org/',
+      migrationGuide:
+        'https://kb.mailbox.org/en/private/account-article/move-away-from-gmail-to-mailbox-org-step-by-step/',
+      platforms: {
+        windows: null,
+        macos: null,
+        linux: null,
+        ios: null,
+        android: null,
+      },
+    },
   },
 
   {
@@ -108,5 +131,16 @@ export const emailServices: Service[] = [
     alternatives: ['proton-mail', 'mailbox-org'],
     difficulty: 'medium',
     setupTime: { undetermined: true, description: 'Time varies based on data migration needs' },
+    guides: {
+      docs: 'https://tuta.com/',
+      migrationGuide: 'https://tuta.com/blog/kickoff-import',
+      platforms: {
+        windows: 'https://tuta.com/blog/desktop-clients-tutanota',
+        macos: 'https://tuta.com/blog/desktop-clients-tutanota',
+        linux: 'https://tuta.com/blog/desktop-clients-tutanota',
+        ios: null,
+        android: null,
+      },
+    },
   },
 ];

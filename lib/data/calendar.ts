@@ -39,6 +39,17 @@ export const calendarServices: Service[] = [
       undetermined: true,
       description: 'Time varies based on data migration needs',
     },
+    guides: {
+      docs: 'https://proton.me/support/how-to-import-calendar-to-proton-calendar',
+      migrationGuide: 'https://proton.me/support/easy-switch-calendars',
+      platforms: {
+        windows: null,
+        macos: null,
+        linux: null,
+        ios: null,
+        android: null,
+      },
+    },
   },
 
   // Alternative
@@ -77,6 +88,17 @@ export const calendarServices: Service[] = [
     setupTime: {
       undetermined: true,
       description: 'Time varies based on data migration needs',
+    },
+    guides: {
+      docs: 'https://tuta.com/calendar',
+      migrationGuide: 'https://tuta.com/blog/import-calendar',
+      platforms: {
+        windows: 'https://tuta.com/blog/desktop-clients',
+        macos: 'https://tuta.com/blog/desktop-clients',
+        linux: 'https://tuta.com/blog/desktop-clients',
+        ios: null,
+        android: 'https://tuta.com/blog/launch-calendar-app',
+      },
     },
   },
 ];

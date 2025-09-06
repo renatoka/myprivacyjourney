@@ -37,6 +37,17 @@ export const vpnServices: Service[] = [
     alternatives: ['ivpn', 'mullvad-vpn'],
     difficulty: 'medium',
     setupTime: { minutes: 30, description: 'Includes account creation and application setup' },
+    guides: {
+      docs: 'https://protonvpn.com/support/protonvpn-setup-guide',
+      migrationGuide: null,
+      platforms: {
+        windows: 'https://protonvpn.com/support/protonvpn-windows-vpn-application',
+        macos: 'https://protonvpn.com/support/protonvpn-mac-vpn-application',
+        linux: 'https://protonvpn.com/support/linux-vpn-setup',
+        ios: 'https://protonvpn.com/support/protonvpn-ios-vpn-app',
+        android: 'https://protonvpn.com/support/android-vpn-setup',
+      },
+    },
   },
 
   // Alternatives
@@ -74,8 +85,18 @@ export const vpnServices: Service[] = [
     alternatives: ['proton-vpn', 'mullvad-vpn'],
     difficulty: 'medium',
     setupTime: { minutes: 30, description: 'Includes account creation and application setup' },
+    guides: {
+      docs: 'https://www.ivpn.net/setup/',
+      migrationGuide: null,
+      platforms: {
+        windows: 'https://www.ivpn.net/setup/windows-10-wireguard/',
+        macos: '',
+        linux: 'https://www.ivpn.net/setup/linux-terminal/',
+        ios: 'https://www.ivpn.net/setup/ios-openvpn-connect/',
+        android: null,
+      },
+    },
   },
-
   {
     id: 'mullvad-vpn',
     name: 'Mullvad VPN',
@@ -110,5 +131,16 @@ export const vpnServices: Service[] = [
     alternatives: ['proton-vpn', 'ivpn'],
     difficulty: 'medium',
     setupTime: { minutes: 30, description: 'Includes account creation and application setup' },
+    guides: {
+      docs: 'https://mullvad.net/en/help/',
+      migrationGuide: null,
+      platforms: {
+        windows: 'https://mullvad.net/en/help/install-mullvad-app-windows',
+        macos: 'https://mullvad.net/en/download/vpn/macos',
+        linux: 'https://mullvad.net/en/help/install-mullvad-app-linux',
+        ios: 'https://mullvad.net/en/download/vpn/ios',
+        android: 'https://mullvad.net/en/help/install-mullvad-app-android',
+      },
+    },
   },
 ];
