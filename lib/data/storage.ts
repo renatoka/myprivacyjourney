@@ -34,6 +34,11 @@ export const storageServices: Service[] = [
       'Upload speeds can be slower due to encryption',
     ],
     alternatives: ['tresorit', 'peergos'],
+    difficulty: 'medium',
+    setupTime: {
+      undetermined: true,
+      description: 'Time varies based on data migration needs',
+    },
   },
 
   // Alternatives
@@ -68,6 +73,11 @@ export const storageServices: Service[] = [
       'Low file size limits on free plan (500MB)',
     ],
     alternatives: ['proton-drive', 'peergos'],
+    difficulty: 'medium',
+    setupTime: {
+      undetermined: true,
+      description: 'Time varies based on data migration needs',
+    },
   },
 
   {
@@ -102,5 +112,10 @@ export const storageServices: Service[] = [
       'Technical complexity may deter average users',
     ],
     alternatives: ['proton-drive', 'tresorit'],
+    difficulty: 'medium',
+    setupTime: {
+      undetermined: true,
+      description: 'Time varies based on data migration needs',
+    },
   },
 ];

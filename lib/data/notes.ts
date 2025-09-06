@@ -34,6 +34,11 @@ export const notesServices: Service[] = [
       'Lacks some modern features on free plan',
     ],
     alternatives: ['notesnook', 'joplin', 'cryptee', 'org-mode'],
+    difficulty: 'medium',
+    setupTime: {
+      undetermined: true,
+      description: 'Might take time to migrate existing notes',
+    },
   },
 
   // Alternatives
@@ -68,6 +73,11 @@ export const notesServices: Service[] = [
       'Relatively new to open source (2022)',
     ],
     alternatives: ['standard-notes', 'joplin', 'cryptee', 'org-mode'],
+    difficulty: 'medium',
+    setupTime: {
+      undetermined: true,
+      description: 'Might take time to migrate existing notes',
+    },
   },
 
   {
@@ -102,6 +112,11 @@ export const notesServices: Service[] = [
       'Performance issues with large databases',
     ],
     alternatives: ['standard-notes', 'notesnook', 'cryptee', 'org-mode'],
+    difficulty: 'medium',
+    setupTime: {
+      undetermined: true,
+      description: 'Might take time to migrate existing notes',
+    },
   },
 
   {
@@ -135,6 +150,11 @@ export const notesServices: Service[] = [
       'Less mature ecosystem compared to alternatives',
     ],
     alternatives: ['standard-notes', 'notesnook', 'joplin', 'org-mode'],
+    difficulty: 'medium',
+    setupTime: {
+      undetermined: true,
+      description: 'Might take time to migrate existing notes',
+    },
   },
 
   {
@@ -169,5 +189,10 @@ export const notesServices: Service[] = [
       'Not suitable for non-technical users',
     ],
     alternatives: ['standard-notes', 'notesnook', 'joplin', 'cryptee'],
+    difficulty: 'medium',
+    setupTime: {
+      undetermined: true,
+      description: 'Might take time to migrate existing notes',
+    },
   },
 ];

@@ -35,6 +35,12 @@ export const messagingServices: Service[] = [
       "Limited to Signal's ecosystem",
     ],
     alternatives: ['molly-android', 'simplex-chat', 'briar-messenger'],
+    difficulty: 'medium',
+    setupTime: {
+      minutes: 30,
+      description:
+        'Could take longer if migrating from another application (contacts, groups, etc.)',
+    },
   },
 
   // Alternatives
@@ -69,6 +75,12 @@ export const messagingServices: Service[] = [
       'Setup complexity for UnifiedPush features',
     ],
     alternatives: ['signal', 'simplex-chat', 'briar-messenger'],
+    difficulty: 'medium',
+    setupTime: {
+      minutes: 30,
+      description:
+        'Could take longer if migrating from another application (contacts, groups, etc.)',
+    },
   },
 
   {
@@ -102,6 +114,12 @@ export const messagingServices: Service[] = [
       'Message delivery dependent on recipient being online',
     ],
     alternatives: ['signal', 'molly-android', 'briar-messenger'],
+    difficulty: 'medium',
+    setupTime: {
+      minutes: 30,
+      description:
+        'Could take longer if migrating from another application (contacts, groups, etc.)',
+    },
   },
 
   {
@@ -136,5 +154,11 @@ export const messagingServices: Service[] = [
       "Can't communicate with non-Briar users",
     ],
     alternatives: ['signal', 'molly-android', 'simplex-chat'],
+    difficulty: 'medium',
+    setupTime: {
+      minutes: 30,
+      description:
+        'Could take longer if migrating from another application (contacts, groups, etc.)',
+    },
   },
 ];

@@ -2,6 +2,8 @@
 
 import { Service } from '@/lib/types';
 import { CheckCircle, Circle, ExternalLink, Undo2 } from 'lucide-react';
+import { DifficultyBadge } from './DifficultyBadge';
+import { TimeEstimate } from './TimeEstimate';
 
 interface ServiceDetailsProps {
   service: Service;
@@ -24,19 +26,18 @@ export function ServiceDetails({
   onNextStep,
   canGoPrevious,
   canGoNext,
-  selectedAlternative,
+  // selectedAlternative,
 }: ServiceDetailsProps) {
   return (
     <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-lg">
       <div className="mb-4 flex items-start justify-between">
         <div>
           <h2 className="text-2xl font-bold text-gray-900">{service.name}</h2>
-          <p className="text-sm tracking-wide text-gray-600 uppercase">
-            {service.category}
-            {selectedAlternative && (
-              <span className="ml-2 text-purple-600">(Alternative Option)</span>
-            )}
-          </p>
+          <p className="text-sm tracking-wide text-gray-600 uppercase">{service.category}</p>
+          <div className="mt-3 flex items-center gap-3">
+            {service.difficulty && <DifficultyBadge level={service.difficulty} />}
+            {service.setupTime && <TimeEstimate time={service.setupTime} />}
+          </div>
         </div>
       </div>
 

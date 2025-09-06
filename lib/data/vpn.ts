@@ -35,6 +35,8 @@ export const vpnServices: Service[] = [
       'Ephemeral port forwarding only (60-second leases)',
     ],
     alternatives: ['ivpn', 'mullvad-vpn'],
+    difficulty: 'medium',
+    setupTime: { minutes: 30, description: 'Includes account creation and application setup' },
   },
 
   // Alternatives
@@ -70,6 +72,8 @@ export const vpnServices: Service[] = [
       'Port forwarding removed in 2023',
     ],
     alternatives: ['proton-vpn', 'mullvad-vpn'],
+    difficulty: 'medium',
+    setupTime: { minutes: 30, description: 'Includes account creation and application setup' },
   },
 
   {
@@ -104,5 +108,7 @@ export const vpnServices: Service[] = [
       'Based in 14 Eyes country (though audited no-logs policy)',
     ],
     alternatives: ['proton-vpn', 'ivpn'],
+    difficulty: 'medium',
+    setupTime: { minutes: 30, description: 'Includes account creation and application setup' },
   },
 ];

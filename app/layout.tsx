@@ -29,7 +29,7 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white p-4">
           <div className="mx-auto max-w-6xl">{children}</div>
-          <div className="mt-8 mb-4 flex justify-center gap-2 text-sm text-gray-500">
+          <div className="mt-8 mb-4 flex flex-col items-center gap-2 text-sm text-gray-500 md:flex-row md:justify-center">
             <Link href="/" className="underline hover:text-gray-700">
               Home
             </Link>

@@ -35,6 +35,8 @@ export const dnsServices: Service[] = [
       'Limited advanced features',
     ],
     alternatives: ['cloudflare-dns', 'mullvad-dns', 'adguard-dns', 'control-d-free'],
+    difficulty: 'easy',
+    setupTime: { minutes: 5, description: 'Simple configuration change' },
   },
 
   // Alternatives
@@ -65,6 +67,8 @@ export const dnsServices: Service[] = [
     ],
     cons: ['Limited filtering capabilities', 'Commercial entity (not non-profit)'],
     alternatives: ['quad9', 'mullvad-dns', 'adguard-dns', 'control-d-free'],
+    difficulty: 'easy',
+    setupTime: { minutes: 5, description: 'Simple configuration change' },
   },
 
   {
@@ -93,6 +97,8 @@ export const dnsServices: Service[] = [
     ],
     cons: ['Limited filtering options', 'Smaller network compared to others'],
     alternatives: ['quad9', 'cloudflare-dns', 'adguard-dns', 'control-d-free'],
+    difficulty: 'easy',
+    setupTime: { minutes: 5, description: 'Simple configuration change' },
   },
 
   {
@@ -121,6 +127,8 @@ export const dnsServices: Service[] = [
     ],
     cons: ['Some data collection for threat intelligence', 'Commercial entity'],
     alternatives: ['quad9', 'cloudflare-dns', 'mullvad-dns', 'control-d-free'],
+    difficulty: 'easy',
+    setupTime: { minutes: 5, description: 'Simple configuration change' },
   },
 
   {
@@ -145,5 +153,7 @@ export const dnsServices: Service[] = [
     pros: ['Customizable filtering', 'Multiple configuration options', 'Good performance'],
     cons: ['Advanced features require paid plans'],
     alternatives: ['quad9', 'cloudflare-dns', 'mullvad-dns', 'adguard-dns'],
+    difficulty: 'easy',
+    setupTime: { minutes: 5, description: 'Simple configuration change' },
   },
 ];

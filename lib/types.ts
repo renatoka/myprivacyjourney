@@ -11,11 +11,14 @@ export interface Service {
   pros: string[];
   cons: string[];
   alternatives?: string[];
+  difficulty?: DifficultyLevel;
+  setupTime?: SetupTime;
 }
 
 export interface ServiceFacts {
   [key: string]: string;
 }
+
 export interface BasicPricing {
   free: boolean;
   startingPrice?: string | null;
@@ -28,6 +31,15 @@ export interface ComparisonPair {
   categoryMatch: boolean;
   winner?: 'service1' | 'service2' | 'tie';
   scoreDifference: number;
+}
+
+export type DifficultyLevel = 'easy' | 'medium' | 'hard';
+
+export interface SetupTime {
+  minutes?: number;
+  hours?: number;
+  description?: string;
+  undetermined?: boolean;
 }
 
 export type ServiceCategory =

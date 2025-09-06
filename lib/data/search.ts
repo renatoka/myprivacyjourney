@@ -34,6 +34,8 @@ export const searchServices: Service[] = [
       "May inherit Google's algorithmic biases",
     ],
     alternatives: ['brave-search', 'duckduckgo', 'searxng'],
+    difficulty: 'easy',
+    setupTime: { minutes: 5, description: 'Simply start using the search engine' },
   },
 
   // Alternatives
@@ -69,6 +71,8 @@ export const searchServices: Service[] = [
       'Some specialized searches may have fewer results',
     ],
     alternatives: ['duckduckgo', 'startpage', 'searxng'],
+    difficulty: 'easy',
+    setupTime: { minutes: 5, description: 'Simply start using the search engine' },
   },
 
   {
@@ -102,6 +106,8 @@ export const searchServices: Service[] = [
       "Results may show Bing's biases or censorship",
     ],
     alternatives: ['brave-search', 'startpage', 'searxng'],
+    difficulty: 'easy',
+    setupTime: { minutes: 5, description: 'Simply start using the search engine' },
   },
 
   {
@@ -135,5 +141,7 @@ export const searchServices: Service[] = [
       'Results quality varies depending on configured engines',
     ],
     alternatives: ['brave-search', 'duckduckgo', 'startpage'],
+    difficulty: 'easy',
+    setupTime: { minutes: 5, description: 'Simply start using the search engine' },
   },
 ];

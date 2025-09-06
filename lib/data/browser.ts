@@ -35,6 +35,8 @@ export const browserService: Service[] = [
       'DNS over HTTPS not enabled by default',
     ],
     alternatives: ['firefox', 'brave-browser', 'arkenfox'],
+    difficulty: 'easy',
+    setupTime: { minutes: 10, description: 'Download and install the browser' },
   },
 
   // Alternatives
@@ -69,6 +71,8 @@ export const browserService: Service[] = [
       'Not as fingerprint-resistant as Mullvad Browser',
     ],
     alternatives: ['mullvad-browser', 'brave-browser', 'arkenfox'],
+    difficulty: 'easy',
+    setupTime: { minutes: 10, description: 'Download and install the browser' },
   },
 
   {
@@ -102,6 +106,8 @@ export const browserService: Service[] = [
       'Less fingerprint protection than Mullvad Browser',
     ],
     alternatives: ['mullvad-browser', 'firefox', 'arkenfox'],
+    difficulty: 'easy',
+    setupTime: { minutes: 10, description: 'Download and install the browser' },
   },
 
   {
@@ -136,5 +142,7 @@ export const browserService: Service[] = [
       'Not as effective as Mullvad Browser against advanced fingerprinting',
     ],
     alternatives: ['mullvad-browser', 'firefox', 'brave-browser'],
+    difficulty: 'easy',
+    setupTime: { minutes: 10, description: 'Download and install the browser' },
   },
 ];

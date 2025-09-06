@@ -36,6 +36,8 @@ export const passwordServices: Service[] = [
       'Some advanced features require premium',
     ],
     alternatives: ['proton-pass', 'onepassword', 'psono', 'keepassxc'],
+    difficulty: 'medium',
+    setupTime: { minutes: 30, description: 'Includes account creation and application setup' },
   },
 
   // Alternatives
@@ -71,6 +73,8 @@ export const passwordServices: Service[] = [
       'No self-hosting option',
     ],
     alternatives: ['bitwarden', 'onepassword', 'psono', 'keepassxc'],
+    difficulty: 'medium',
+    setupTime: { minutes: 30, description: 'Includes account creation and application setup' },
   },
 
   {
@@ -105,6 +109,8 @@ export const passwordServices: Service[] = [
       'No self-hosting option',
     ],
     alternatives: ['bitwarden', 'proton-pass', 'psono', 'keepassxc'],
+    difficulty: 'medium',
+    setupTime: { minutes: 30, description: 'Includes account creation and application setup' },
   },
 
   {
@@ -138,6 +144,8 @@ export const passwordServices: Service[] = [
       'Limited third-party integrations',
     ],
     alternatives: ['bitwarden', 'proton-pass', 'onepassword', 'keepassxc'],
+    difficulty: 'medium',
+    setupTime: { minutes: 30, description: 'Includes account creation and application setup' },
   },
 
   {
@@ -172,5 +180,7 @@ export const passwordServices: Service[] = [
       'Learning curve for beginners',
     ],
     alternatives: ['bitwarden', 'proton-pass', 'onepassword', 'psono'],
+    difficulty: 'medium',
+    setupTime: { minutes: 30, description: 'Includes account creation and application setup' },
   },
 ];

@@ -34,6 +34,11 @@ export const calendarServices: Service[] = [
       'Extended sharing limited to paid subscribers',
     ],
     alternatives: ['tuta-calendar'],
+    difficulty: 'medium',
+    setupTime: {
+      undetermined: true,
+      description: 'Time varies based on data migration needs',
+    },
   },
 
   // Alternative
@@ -68,5 +73,10 @@ export const calendarServices: Service[] = [
       'Smaller ecosystem compared to major providers',
     ],
     alternatives: ['proton-calendar'],
+    difficulty: 'medium',
+    setupTime: {
+      undetermined: true,
+      description: 'Time varies based on data migration needs',
+    },
   },
 ];

@@ -34,6 +34,11 @@ export const fileSharingServices: Service[] = [
       'Sender must keep computer online during transfers',
     ],
     alternatives: ['send', 'syncthing', 'nextcloud'],
+    difficulty: 'medium',
+    setupTime: {
+      undetermined: true,
+      description: 'Time varies based on data migration needs',
+    },
   },
 
   // Alternatives
@@ -68,6 +73,11 @@ export const fileSharingServices: Service[] = [
       'No built-in file management features',
     ],
     alternatives: ['onionshare', 'syncthing', 'nextcloud'],
+    difficulty: 'medium',
+    setupTime: {
+      undetermined: true,
+      description: 'Time varies based on data migration needs',
+    },
   },
 
   {
@@ -102,6 +112,11 @@ export const fileSharingServices: Service[] = [
       'Can be resource intensive',
     ],
     alternatives: ['onionshare', 'send', 'nextcloud'],
+    difficulty: 'medium',
+    setupTime: {
+      undetermined: true,
+      description: 'Time varies based on data migration needs',
+    },
   },
 
   {
@@ -136,5 +151,10 @@ export const fileSharingServices: Service[] = [
       'Third-party hosting providers not recommended',
     ],
     alternatives: ['onionshare', 'send', 'syncthing'],
+    difficulty: 'medium',
+    setupTime: {
+      undetermined: true,
+      description: 'Time varies based on data migration needs',
+    },
   },
 ];

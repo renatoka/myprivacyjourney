@@ -35,6 +35,11 @@ export const socialServices: Service[] = [
       'Smaller user base than mainstream platforms',
     ],
     alternatives: ['element'],
+    difficulty: 'hard',
+    setupTime: {
+      undetermined: true,
+      description: 'Hard due to nature of people not wanting to switch',
+    },
   },
 
   // Alternative
@@ -70,5 +75,10 @@ export const socialServices: Service[] = [
       'Limited mainstream adoption',
     ],
     alternatives: ['mastodon'],
+    difficulty: 'hard',
+    setupTime: {
+      undetermined: true,
+      description: 'Hard due to nature of people not wanting to switch',
+    },
   },
 ];

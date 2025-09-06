@@ -3,7 +3,7 @@
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { createServiceMap } from '@/lib/services';
 import { Service } from '@/lib/types';
-import { ArrowRight, CheckCircle, Circle } from 'lucide-react';
+import { ArrowRight, CheckCircle, Circle, Clock } from 'lucide-react';
 
 interface JourneyTimelineProps {
   primaryServices: Service[];
@@ -55,8 +55,41 @@ export function JourneyTimeline({
               >
                 <div className="flex items-center justify-between">
                   <div>
-                    <h3 className="font-semibold text-gray-900">{service.name}</h3>
-                    <p className="text-sm text-gray-600 uppercase">{service.category}</p>
+                    <div className="flex flex-col">
+                      <h3 className="font-semibold text-gray-900">{service.name}</h3>
+                      <p className="text-xs text-gray-600 uppercase">{service.category}</p>
+                    </div>
+                    {service.difficulty && (
+                      <div className="mt-3 flex items-center gap-2">
+                        <span
+                          className={`text-xs font-medium ${
+                            service.difficulty === 'easy'
+                              ? 'text-green-600'
+                              : service.difficulty === 'medium'
+                                ? 'text-yellow-600'
+                                : 'text-red-600'
+                          }`}
+                        >
+                          {service.difficulty === 'easy'
+                            ? '● Easy setup'
+                            : service.difficulty === 'medium'
+                              ? '● Moderate setup'
+                              : '● Complex setup'}
+                        </span>
+                        {service.setupTime && (
+                          <span className="flex items-center text-xs text-gray-500">
+                            <Clock size={10} className="mr-0.5" />
+                            {service.setupTime.undetermined
+                              ? 'Setup time varies'
+                              : service.setupTime.hours
+                                ? `${service.setupTime.hours} hr${service.setupTime.hours > 1 ? 's' : ''}`
+                                : service.setupTime.minutes
+                                  ? `${service.setupTime.minutes} min${service.setupTime.minutes > 1 ? 's' : ''}`
+                                  : ''}
+                          </span>
+                        )}
+                      </div>
+                    )}
                   </div>
                   <ArrowRight
                     size={16}

@@ -35,6 +35,8 @@ export const emailServices: Service[] = [
       'Higher cost for full feature access',
     ],
     alternatives: ['mailbox-org', 'tuta-mail'],
+    difficulty: 'medium',
+    setupTime: { undetermined: true, description: 'Time varies based on data migration needs' },
   },
 
   // Alternatives
@@ -69,6 +71,8 @@ export const emailServices: Service[] = [
       'Calendar/contacts encryption not available',
     ],
     alternatives: ['proton-mail', 'tuta-mail'],
+    difficulty: 'medium',
+    setupTime: { undetermined: true, description: 'Time varies based on data migration needs' },
   },
 
   {
@@ -102,5 +106,7 @@ export const emailServices: Service[] = [
       'Limited email import/export capabilities',
     ],
     alternatives: ['proton-mail', 'mailbox-org'],
+    difficulty: 'medium',
+    setupTime: { undetermined: true, description: 'Time varies based on data migration needs' },
   },
 ];
