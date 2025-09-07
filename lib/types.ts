@@ -60,6 +60,7 @@ export type ServiceCategory =
   | 'search'
   | 'email'
   | 'messaging'
+  | 'two-factor'
   | 'video-call'
   | 'social'
   | 'storage'

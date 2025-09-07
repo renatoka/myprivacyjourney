@@ -1,17 +1,21 @@
 import { Service } from './types';
 
 import {
+  analyticsServices,
   browserService,
   calendarServices,
   dnsServices,
   emailServices,
   fileSharingServices,
   messagingServices,
+  mobileOSServices,
   notesServices,
   passwordServices,
   searchServices,
   socialServices,
   storageServices,
+  twoFactorServices,
+  videoCallServices,
   vpnServices,
 } from './data';
 
@@ -28,33 +32,37 @@ const ALL_SERVICES: Service[] = [
   ...notesServices,
   ...calendarServices,
   ...fileSharingServices,
+  ...videoCallServices,
+  ...analyticsServices,
+  ...mobileOSServices,
+  ...twoFactorServices,
 ];
 
 export const PRIMARY_SERVICES = ALL_SERVICES.filter((s) => s.isPrimary);
 export const ALTERNATIVE_SERVICES = ALL_SERVICES.filter((s) => !s.isPrimary);
 
 const CATEGORY_ORDER = [
-  'dns',
   'vpn',
+  'password',
+  'dns',
   'browser',
   'search',
   'email',
   'messaging',
   'video-call',
   'social',
-  'storage',
+  'ecommerce',
+  'news',
+  'education',
+  'entertainment',
+  'health',
   'file-sharing',
-  'password',
+  'storage',
   'notes',
   'calendar',
   'productivity',
   'analytics',
   'ads',
-  'ecommerce',
-  'health',
-  'entertainment',
-  'news',
-  'education',
   'mobile-os',
   'other',
 ];
